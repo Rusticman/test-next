@@ -1,0 +1,116 @@
+@import "../../../variables.less";
+
+.menu() {
+  text-align: right;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    height: @header-height;
+    line-height: @header-height;
+    display: inline-block;
+    font-weight: lighter;
+
+    a {
+      padding: 24px 15px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    &:global(.active) {
+      border-bottom: 2px solid @secondary-color;
+    }
+  }
+}
+
+.desktop {
+  .menu();
+  display: block;
+
+  @media (max-width: @mobile) {
+    display: none;
+  }
+}
+
+.mobile {
+  .menu();
+  display: none;
+
+  @media (max-width: @mobile) {
+    display: block;
+  }
+}
+
+.hide {
+  display: none !important;
+}
+
+.icon {
+  width: 26px;
+  color: @secondary-color;
+  font-size: 30px;
+  padding: 17px;
+  float: right;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.fullscreen {
+  position: fixed;
+  overflow-y: scroll;
+  top: @header-height;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 200px);
+}
+
+@block-height: 200px;
+
+.block {
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  a {
+    display: block;
+    height: 100%;
+  }
+
+  :global(.mask) {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  :global(.content) {
+    position: absolute;
+    text-align: center;
+    font-size: 2em;
+    line-height: @block-height;
+    top: 0;
+    right: 0;
+    bottom: @header-height;
+    left: 0;
+    z-index: 2;
+
+    a {
+      color: #ffffff;
+    }
+  }
+}

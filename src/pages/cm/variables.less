@@ -1,0 +1,65 @@
+@header-height: 65px;
+
+@mobile: 767px;
+
+@primary-color: #6D6E70;
+@primary-color-light: lighten(@primary-color, 5%);
+@primary-color-dark: darken(@primary-color, 5%);
+
+@secondary-color: #ffffff;
+@secondary-color-light: lighten(@secondary-color, 5%);
+@secondary-color-dark: darken(@secondary-color, 5%);
+
+@accent-color: #8dbf33;
+@accent-color-light: lighten(@accent-color, 5%);
+@accent-color-dark: darken(@accent-color, 5%);
+
+@mobile: 900px;
+
+.box-shadow(@x: 0; @y: 0; @blur: 1px; @color: #000) {
+  box-shadow: @arguments;
+}
+
+.big-block {
+  .box-shadow(2px; 5px);
+}
+
+.filter(@greyscale: 50%) {
+  filter: grayscale(@greyscale);
+  &:hover {
+    filter: grayscale(0%);
+    color: #ffffff;
+    cursor: pointer;
+
+  }
+}
+
+//.filter-and-zoom(@greyscale: 50%; @time: 5s) {
+//  .filter;
+//  &:hover {
+//  animation: faway-zoomy @time linear forwards;
+//  }
+//}
+
+@keyframes faway-bouncy {
+  0% {
+    top: 45px;
+  }
+  50% {
+    top: 55px;
+  }
+  100% {
+    top: 45px;
+  }
+}
+
+@keyframes faway-zoomy {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1)
+  }
+  to {
+    -webkit-transform: scaleX(1.1);
+    transform: scaleX(1.1)
+  }
+}

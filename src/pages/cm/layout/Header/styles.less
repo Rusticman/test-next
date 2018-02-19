@@ -1,0 +1,25 @@
+@import "../../variables.less";
+
+.container {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  background-color: @primary-color;
+  transition: background-color 300ms linear;
+
+  display: grid;
+  grid-template-columns: 8px 230px 1fr 8px;
+  grid-template-rows: @header-height;
+  align-items: center;
+}
+
+:global(body.menu-open) {
+  .container {
+    background-color: @primary-color;
+  }
+}
+
+.transparent {
+  background-color: transparent;
+}

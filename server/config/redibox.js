@@ -1,9 +1,8 @@
 module.exports = {
-  // TODO get card and purchase redislabs hosted redis subscription
+  // TODO purchase redislabs hosted redis subscription
   redis: {
-    host: '',
-    port: '',
-    password: '',
+    host: '127.0.0.1',
+    port: '6379',
   },
   log: {
     level: 'info',

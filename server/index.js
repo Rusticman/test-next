@@ -2,6 +2,7 @@ require('isomorphic-unfetch');
 require('./utils');
 
 const express = require('express');
+const compression = require('compression');
 const { initializeRoutes } = require('./routes');
 const { initializeRediBox } = require('./services/redibox');
 const { initializeWaterline } = require('./services/waterline');
@@ -14,7 +15,7 @@ global.next = require('next')({ dev, dir: './src' });
 (async () => {
   await next.prepare();
   next.server = express();
-
+  next.server.use(compression({ threshold: 0 }));
   // await initializeWaterline();
   await initializeRediBox();
   await initializeRoutes();

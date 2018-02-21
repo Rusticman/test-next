@@ -1,4 +1,20 @@
 const { mapToProps, isObject, flatten } = require('deeps');
+const { Logger, transports } = require('winston');
+
+// setup logger global
+global.Log = new Logger({
+  transports: [new transports.Console(require('./config/logger'))],
+});
+
+// setup brand global
+let brand = process.env.BRAND;
+if (!brand) {
+  brand = 'cm';
+  Log.warn(
+    `'BRAND' environment variable was not specified, defaulting to 'cm'.`
+  );
+}
+global.BRAND = brand;
 
 /**
  * Async/Await to Array [error, result]

@@ -15,6 +15,7 @@
     "jasmine": true
   },
   "rules": {
+    "global-require": "off",
     "prettier/prettier": ["error", {
       "trailingComma": "es5",
       "singleQuote": true

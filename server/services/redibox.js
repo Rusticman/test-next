@@ -25,11 +25,11 @@ module.exports = {
 
       ready = true;
       deferred.resolve();
-      instance.log.info('-----------------------');
-      instance.log.info(' RediBox now ready \\o/ ');
-      instance.log.info(`  - ${instance._hooksCount} hooks.`);
-      instance.log.info(`  - ${instance._allClientCount} client(s).`);
-      instance.log.info('-----------------------\n');
+      Log.info('-----------------------');
+      Log.info(' RediBox initialised: ');
+      Log.info(`  - ${instance._hooksCount} hooks.`);
+      Log.info(`  - ${instance._allClientCount} client(s).`);
+      Log.info('-----------------------\n');
     });
 
     return deferred.promise;

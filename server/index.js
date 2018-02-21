@@ -36,7 +36,7 @@ global.next = require('next')({ dev, dir: './src' });
   next.server.use(helmet());
 
   // internal services
-  // await initializeWaterline();
+  await initializeWaterline();
   await initializeRediBox();
   await initializeRoutes();
 
@@ -47,6 +47,6 @@ global.next = require('next')({ dev, dir: './src' });
 
   // prevents hanging on restarts
   process.on('exit', () => {
-    next.server.close();
+    Log.info('Shutting down, goodbye :(');
   });
 })();

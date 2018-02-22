@@ -2,7 +2,6 @@ const waterline = require('waterline');
 
 const config = require('./../config/waterline');
 
-// todo f-u sails..
 module.exports = {
   initializeWaterline() {
     const deferred = Promise.defer();

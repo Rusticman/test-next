@@ -15,13 +15,25 @@ module.exports = {
       return next.getRequestHandler()(req, res);
     }
 
+
     // TODO URL mapping to content slug
     if (url === '/') {
+
       return next.render(req, res, `/${BRAND}/templates/homepage`, {
         "slug": "homepage",
         "title": "Winner winner chicken dinner",
         "meta": JSON.parse("{\"template\":\"homepage\",\"block_hero\":{\"headline\":\"Homepage\",\"secondary\":\"Welcome to checkd media\"},\"block_about\":{\"cta\":\"Read More\",\"description\":\"established communities await your brand.\"},\"has_sub_pages\":false}"),
         "parent": 0
+      });
+    }
+
+    if (url === 'news') {
+      const news = await Content.findOne({id:562});
+      const posts = await Content.find({ parent: 562});
+console.log('NEWs')
+      return next.render(req, res, `/${Brand}/templates/news`, {
+        news,
+        posts
       });
     }
 

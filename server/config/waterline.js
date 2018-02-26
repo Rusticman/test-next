@@ -27,10 +27,4 @@ module.exports = {
       ...require('./models/content'),
     },
   },
-  // defaultModelSettings: {
-  //   attributes: {
-  //     created_at: { type: 'date' },
-  //     updated_at: { type: 'date' },
-  //   },
-  // }
 };

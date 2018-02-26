@@ -2,7 +2,7 @@ import React from 'react';
 
 import animateScrollTo from 'animated-scroll-to';
 import Container from '../../../layout/Container';
-import ArrowIcon from '../../../../../components/Icon/double-arrow';
+import ArrowIcon from '../../../../../components/Icon/angleDoubleDown';
 import styles from './styles.less';
 
 function Hero({ h1, h2, image, scrollTo }) {

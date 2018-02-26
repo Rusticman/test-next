@@ -1,6 +1,6 @@
 import React from 'react';
 import HomeIcon from '../../../../components/Icon/home';
-import EmailIcon from '../../../../components/Icon/email';
+import EmailIcon from '../../../../components/Icon/envelope';
 import PhoneIcon from '../../../../components/Icon/phone';
 import styles from './styles.less';
 

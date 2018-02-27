@@ -10,9 +10,8 @@ import Person from './Person';
 
 import styles from './styles.less';
 
-function About({ props }) {
-
-  const { about: { meta: { block_hero } } } = props;
+function About({ about }) {
+  const { meta: { block_hero } } = about;
   const { headline, secondary } = block_hero;
 
   return (

@@ -10,6 +10,11 @@ const FAV_ICON = 'https://cdn.checkd.media/favicons/cm.png';
 
 const Page = ComposedComponent => {
   function Decorator(props) {
+    const extendedProps = {
+      ...props,
+    };
+    const { url: { query } } = props;
+    extendedProps[query.meta.template] = query;
     return (
       <Document>
         <Head>
@@ -21,7 +26,7 @@ const Page = ComposedComponent => {
           <link rel="shortcut icon" href={FAV_ICON} />
           <link rel="apple-touch-icon" href={FAV_ICON} />
         </Head>
-        <ComposedComponent {...{ ...props, ...props.url.query }} />
+        <ComposedComponent {...extendedProps} />
       </Document>
     );
   }

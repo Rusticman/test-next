@@ -17,14 +17,14 @@ class News extends Component {
       limit: 6,
     });
 
-    return { posts, news };
+    return { posts };
   }
 
-  render() {
+  render() {console.log('this.props:', this.props);
     const { posts, news } = this.props;
 
-    const headline = idx(this.props.news.meta.block_hero.headline, headline => headline);
-    const secondary = idx(this.props.news.meta.block_hero.secondary, secondary => secondary);
+    const headline = idx(this.props.news, headline => headline.meta.block_hero.headline);
+    const secondary = idx(this.props.news, secondary => secondary.meta.block_hero.secondary);
     return (
       <React.Fragment>
         <Header

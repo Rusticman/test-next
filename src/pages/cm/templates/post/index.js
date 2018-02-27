@@ -9,7 +9,7 @@ import styles from './styles.less';
 
 class Post extends React.Component {
   render() {
-    const post = this.props;
+    const post = this.props.post;
     const featureImg = idx(post, p => p.meta.featured_image);
     return (
       <React.Fragment>

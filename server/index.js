@@ -23,7 +23,6 @@ global.next = require('next')({ dev, dir: './src' });
   next.server = express();
 
   // middleware
-  next.server.use(compression({ threshold: 0 }));
 
   next.server.use(
     cors({
@@ -32,6 +31,8 @@ global.next = require('next')({ dev, dir: './src' });
       credentials: true,
     })
   );
+
+  // next.server.use(compression({ threshold: 0 }));
 
   next.server.use(helmet());
 

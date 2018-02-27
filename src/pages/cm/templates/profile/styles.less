@@ -1,0 +1,197 @@
+.who-wrap {
+  text-align: center;
+}
+
+.who > div.image-wrapper {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+div.image-wrapper > div {
+  width: 130px;
+  height: 130px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: inline-block;
+  border-radius: 65px;
+  box-sizing: border-box;
+  border: 3px solid #93b553;
+  box-shadow: 2px 1px 4px 1px #e8e8e8;
+}
+
+div.person {
+  text-align: center;
+}
+
+div.person > p {
+  display: inline-block;
+  font-weight: 400;
+  border-radius: 3px;
+  border: 1px solid #f0f0f0;
+  padding: 5px 10px;
+}
+
+.questions {
+  grid-area: questions;
+  margin: 50px 0;
+  text-align: center;
+}
+
+.questions > div {
+  display: inline-block;
+  max-width: 350px;
+}
+
+.questions h2 {
+  text-align: center;
+}
+
+.q {
+  margin: 5px;
+  text-align: left;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.q span, .a span {
+  min-height: 30px;
+  display: inline-block;
+  min-width: 50px;
+  padding: 10px;
+  margin: 1px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.q > span {
+  background-color: #e8e8e8;
+  max-width: calc(30em * 0.5);
+}
+
+.a {
+  text-align: right;
+  font-style: oblique;
+  font-weight: 300;
+}
+
+.a > span {
+  background-color: #EFFAF4;
+  max-width: calc(30em * 0.5);
+}
+
+.description {
+  position: relative;
+}
+
+.description > h2 {
+  font-weight: 300;
+  margin-bottom: 40px;
+  font-size: 40px;
+}
+
+.about {
+  position: relative;
+  grid-area: about;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  padding: 0 40px;
+}
+
+.about:after{
+  content:'QUESTIONS';
+  position:absolute;
+  bottom:0;
+  left:46%;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.about > div {
+  text-align: center;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 400;
+}
+
+.future {
+  margin: 60px 0;
+}
+
+//grid styling
+
+.container {
+  display: grid;
+  grid-template-columns: 18% 18% 18% 18% 18% 10%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". who about about about ."
+  ". who about about about ."
+    "question1 question2 question3 question4 question5 question6"
+    "question1 question2 question3 question4 question5 question6"
+    "question1 question2 question3 question4 question5 question6";
+  padding-bottom: 15px;
+  min-width:300px;
+}
+
+.question-container1 {
+  grid-area: question1;
+}
+
+.question-container2 {
+  grid-area: question2;
+}
+
+.question-container3 {
+  grid-area: question3;
+}
+
+.question-container4 {
+  grid-area: question4;
+}
+
+.question-container5 {
+  grid-area: question5;
+}
+
+.question-container6 {
+  grid-area: question6;
+}
+
+.who {
+  margin-top: 10px;
+  grid-area: who;
+  align-items: center;
+}
+
+@media screen and (max-width: 670px) {
+  div.container {
+    grid-template-areas:
+      ". who about about about ."
+    ". who about about about ."
+      "question1 question1 question1 question1 question1 question1"
+      "question2 question2 question2 question2 question2 question2"
+      "question3 question3 question3 question3 question3 question3"
+      "question4 question4 question4 question4 question4 question4"
+      "question5 question5 question5 question5 question5 question5"
+      "question6 question6 question6 question6 question6 question6";
+  }
+
+  .a span {
+    max-width: none;
+  }
+}
+
+@media screen and (max-width:652px) {
+  div.container{
+    grid-template-areas:
+      ". who who who who ."
+    ". about about about about ."
+      "question1 question1 question1 question1 question1 question1"
+      "question2 question2 question2 question2 question2 question2"
+      "question3 question3 question3 question3 question3 question3"
+      "question4 question4 question4 question4 question4 question4"
+      "question5 question5 question5 question5 question5 question5"
+      "question6 question6 question6 question6 question6 question6";
+
+  }
+}

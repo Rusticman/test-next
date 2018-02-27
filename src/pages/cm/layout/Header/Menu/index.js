@@ -8,7 +8,6 @@ import Bars from '../../../../../components/Icon/bars';
 import styles from './styles.less';
 
 class Menu extends React.Component {
-
   static propTypes = {
     transparent: PropTypes.bool,
   };
@@ -31,7 +30,7 @@ class Menu extends React.Component {
     });
   }
 
-  _isActive = (base) => {
+  _isActive = base => {
     const path = this.state.path.split('/').filter(Boolean)[0];
     return base === path;
   };
@@ -94,11 +93,31 @@ class Menu extends React.Component {
           <Bars />
         </div>
         <div className={cx(styles.fullscreen, { [styles.hide]: !isOpen })}>
-          {this.renderMobileBlock('News', '/news', '//cdn.checkd.media/images/foobar.jpg')}
-          {this.renderMobileBlock('About Us', '/about', '//cdn.checkd.media/images/foobar.jpg')}
-          {this.renderMobileBlock('Partners', '/', '//cdn.checkd.media/images/foobar.jpg')}
-          {this.renderMobileBlock('Brands', '/', '//cdn.checkd.media/images/foobar.jpg')}
-          {this.renderMobileBlock('Join Us', '/', '//cdn.checkd.media/images/foobar.jpg')}
+          {this.renderMobileBlock(
+            'News',
+            '/news',
+            '//cdn.checkd.media/images/foobar.jpg'
+          )}
+          {this.renderMobileBlock(
+            'About Us',
+            '/about',
+            '//cdn.checkd.media/images/foobar.jpg'
+          )}
+          {this.renderMobileBlock(
+            'Partners',
+            '/',
+            '//cdn.checkd.media/images/foobar.jpg'
+          )}
+          {this.renderMobileBlock(
+            'Brands',
+            '/',
+            '//cdn.checkd.media/images/foobar.jpg'
+          )}
+          {this.renderMobileBlock(
+            'Join Us',
+            '/',
+            '//cdn.checkd.media/images/foobar.jpg'
+          )}
         </div>
       </React.Fragment>
     );
@@ -114,9 +133,7 @@ class Menu extends React.Component {
       >
         <div className="mask" />
         <div className="content">
-          <Link href={to}>
-            {text}
-          </Link>
+          <Link href={to}>{text}</Link>
         </div>
       </div>
     );
@@ -125,12 +142,8 @@ class Menu extends React.Component {
   render() {
     return (
       <div>
-        <div className={styles.desktop}>
-          {this.renderDesktop()}
-        </div>
-        <div className={styles.mobile}>
-          {this.renderMobile()}
-        </div>
+        <div className={styles.desktop}>{this.renderDesktop()}</div>
+        <div className={styles.mobile}>{this.renderMobile()}</div>
       </div>
     );
   }

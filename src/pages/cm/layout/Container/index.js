@@ -6,9 +6,7 @@ function Container({ children }) {
   return (
     <div className={styles.container}>
       <div />
-      <div>
-        {children}
-      </div>
+      <div>{children}</div>
       <div />
     </div>
   );

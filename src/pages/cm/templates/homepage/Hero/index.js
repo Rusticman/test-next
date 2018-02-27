@@ -25,7 +25,7 @@ function Hero({ h1, h2, image, scrollTo }) {
             <div
               className={styles.arrows}
               role="button"
-              aria-label={'Find out more'}
+              aria-label="Find out more"
               onClick={() => animateScrollTo(scrollTo)}
             >
               <ArrowIcon />

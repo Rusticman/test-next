@@ -9,25 +9,19 @@ const mapToWidth = {
   xl: 1920,
 };
 
-export default function (entity, originalText) {
+export default function(entity, originalText) {
   const { text: caption, data, data: { media } } = entity;
 
   const width = mapToWidth[media.size];
   return (
-    <figure
-      className={cx(styles[data.alignment], styles.figure)}
-    >
+    <figure className={cx(styles[data.alignment], styles.figure)}>
       <img
         src={media.sizes[media.size]}
         alt={caption || 'Media image'}
         className={styles.image}
       />
       <div>
-        <figcaption
-          className={styles.figcaption}
-        >
-          {caption}
-        </figcaption>
+        <figcaption className={styles.figcaption}>{caption}</figcaption>
       </div>
     </figure>
   );

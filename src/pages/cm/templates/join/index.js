@@ -14,9 +14,6 @@ class JoinUs extends React.Component {
   }
 
   render() {
-
-    console.log(this.props.jobs);
-
     const { block_hero } = this.props.meta;
 
     const headline = idx(block_hero, bh => bh.headline);

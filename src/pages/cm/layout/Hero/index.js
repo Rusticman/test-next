@@ -13,7 +13,7 @@ function Hero({ image, headline, description }) {
       <div className={styles.mask} />
       <div className={styles.overlay}>
         <h1>{headline}</h1>
-        {!!description && (<h2>{description}</h2>)}
+        {!!description && <h2>{description}</h2>}
       </div>
     </div>
   );

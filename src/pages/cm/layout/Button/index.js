@@ -4,10 +4,7 @@ import styles from './styles.less';
 
 function Button({ href, children, style }) {
   return (
-    <a
-      className={cx(styles.button, style)}
-      href={href}
-    >
+    <a className={cx(styles.button, style)} href={href}>
       {children}
     </a>
   );

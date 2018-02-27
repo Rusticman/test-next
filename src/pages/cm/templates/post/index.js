@@ -16,14 +16,15 @@ class Post extends React.Component {
         <Header />
         <div className={styles.container}>
           <Hero
-            headline={post && post.title || ''}
+            headline={(post && post.title) || ''}
             image={featureImg ? mediaUrl(featureImg, 'xl') : ''}
           />
           <div className={styles.post}>
-            {idx(post, p => p.meta.editor_content_state) ?
-              <DraftRender draftContext={post.meta.editor_content_state} /> :
+            {idx(post, p => p.meta.editor_content_state) ? (
+              <DraftRender draftContext={post.meta.editor_content_state} />
+            ) : (
               <div>Currently, there is no content to render for this post.</div>
-            }
+            )}
           </div>
         </div>
       </React.Fragment>

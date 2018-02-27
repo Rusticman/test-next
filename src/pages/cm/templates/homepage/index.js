@@ -11,7 +11,6 @@ import Blocks from './Blocks';
 import Footer from '../../layout/Footer';
 
 class Homepage extends React.Component {
-
   render() {
     const { title } = this.props;
 
@@ -20,10 +19,7 @@ class Homepage extends React.Component {
         <Head>
           <title>{title}</title>
         </Head>
-        <Header
-          transparent
-          offsetTop={10}
-        />
+        <Header transparent offsetTop={10} />
         <Hero
           scrollTo={500}
           h1="A unique social marketing company"

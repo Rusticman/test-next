@@ -10,7 +10,6 @@ const FAV_ICON = 'https://cdn.checkd.media/favicons/cm.png';
 
 const Page = ComposedComponent => {
   function Decorator(props) {
-
     const extendedProps = {
       ...props,
     };

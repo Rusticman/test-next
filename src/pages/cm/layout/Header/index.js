@@ -51,11 +51,14 @@ class Header extends React.Component {
     // Avoid duplicate setStates
     if (!this.transitioning && this.state.transparent !== transparent) {
       this.transitioning = true;
-      this.setState({
-        transparent,
-      }, () => {
-        this.transitioning = false;
-      });
+      this.setState(
+        {
+          transparent,
+        },
+        () => {
+          this.transitioning = false;
+        }
+      );
     }
   };
 

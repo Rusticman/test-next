@@ -10,15 +10,16 @@ function Posts({ posts }) {
   return (
     <div className={styles.posts}>
       {posts.map((post, i) => {
-        const featureImg = idx(post, p => p.meta.featured_image) ? mediaUrl(post.meta.featured_image, 'lg') :
-          'https://images.unsplash.com/photo-1505473478993-e61136811cc4?auto=format&fit=crop&w=1350&q=80';
+        const featureImg = idx(post, p => p.meta.featured_image)
+          ? mediaUrl(post.meta.featured_image, 'lg')
+          : 'https://images.unsplash.com/photo-1505473478993-e61136811cc4?auto=format&fit=crop&w=1350&q=80';
         return (
-          <React.Fragment key={'post-' + i}>
+          <React.Fragment key={`post-${i}`}>
             <div>
               <Block
                 img={featureImg}
                 title={post.title || 'This post has no title'}
-                description={''}
+                description=""
                 to={`/news/${post.slug || ''}`}
               />
             </div>

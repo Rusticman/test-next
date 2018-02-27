@@ -26,6 +26,7 @@
     "draft-convert": "^2.0.1",
     "draft-js": "^0.10.5",
     "express": "^4.16.2",
+    "google-map-react": "^0.32.0",
     "helmet": "^3.11.0",
     "hoist-non-react-statics": "^2.5.0",
     "isomorphic-unfetch": "^2.0.0",

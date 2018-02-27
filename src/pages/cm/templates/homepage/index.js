@@ -6,6 +6,9 @@ import Header from '../../layout/Header';
 
 import Hero from './Hero';
 import About from './About';
+import Partners from './Partners';
+import Blocks from './Blocks';
+import Footer from '../../layout/Footer';
 
 class Homepage extends React.Component {
 
@@ -27,7 +30,10 @@ class Homepage extends React.Component {
           h2="Established communities await your brand"
           image="//cdn.checkd.media/images/bq5a0ki6-lg.jpg"
         />
+        <Partners />
         <About />
+        <Blocks />
+        <Footer />
       </React.Fragment>
     );
   }

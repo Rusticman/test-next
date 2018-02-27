@@ -1,0 +1,66 @@
+@import "../../variables.less";
+
+.container {
+  font-weight: 200;
+  background: #6d6e70;
+  color: white;
+  display: flex;
+  justify-content: center;
+
+  .content {
+    padding: 2% 10%;
+  }
+  .content:first-child {
+    text-align: center;
+  }
+
+  .content span {
+    margin-left: 7px;
+  }
+}
+
+.logo {
+  vertical-align: sub;
+  margin-right: 5px;
+}
+
+.social-wrapper {
+  padding-bottom: 1px;
+  margin-right: 8px;
+
+  &:hover {
+    border-bottom: 1px solid white;
+  }
+
+  .social-logo {
+    max-height: 14px;
+  }
+
+}
+
+.ethos {
+  font-weight: 400;
+}
+
+.col {
+  padding-top: 6px;
+  margin-right: 10px;
+}
+
+.icon {
+  margin-right: 10px;
+  color: white;
+}
+
+.header {
+  display: inline-block;
+  color: #8dbf33;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 774px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -26,7 +26,7 @@ class WhatWeDo extends Component {
           description={secondary}
         />
         <Content content={content} />
-  </React.Fragment>
+      </React.Fragment>
     );
   }
 }

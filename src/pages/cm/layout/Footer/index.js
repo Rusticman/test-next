@@ -8,9 +8,11 @@ function Footer() {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <img className={styles.logo}
-             src={'https://cdn.checkd.media/favicons/cm.png'}
-             alt={'Checkd Media logo'} />
+        <img
+          className={styles.logo}
+          src="https://cdn.checkd.media/favicons/cm.png"
+          alt="Checkd Media logo"
+        />
         <h2 className={styles.header}>Checkd Media </h2>
         <div className={styles.ethos}>
           Established. Brands. Community Driven.
@@ -31,26 +33,46 @@ function Footer() {
           <span>hello@checkd.media</span>
         </div>
         <div>
-          <a className={styles['social-wrapper']}
-             href={'https://twitter.com/CheckdMedia'}><img
-            className={styles['social-logo']}
-            src={'http://cdn.checkd.media/images/twitter.png'}
-            alt={'twitter logo'} /></a>
-          <a className={styles['social-wrapper']}
-             href={'https://www.facebook.com/checkdMedia/'}><img
-            className={styles['social-logo']}
-            src={'http://cdn.checkd.media/images/facebook.png'}
-            alt={'facebook logo'} /></a>
-          <a className={styles['social-wrapper']}
-             href={'https://www.instagram.com/checkdmedia'}><img
-            className={styles['social-logo']}
-            src={'http://cdn.checkd.media/images/instagram-2.png'}
-            alt={'instagram logo'} /></a>
-          <a className={styles['social-wrapper']}
-             href={'https://www.linkedin.com/company/checkd-media'}><img
-            className={styles['social-logo']}
-            src={'http://cdn.checkd.media/images/linkedin.png'}
-            alt={'linkedin logo'} /></a>
+          <a
+            className={styles['social-wrapper']}
+            href="https://twitter.com/CheckdMedia"
+          >
+            <img
+              className={styles['social-logo']}
+              src="http://cdn.checkd.media/images/twitter.png"
+              alt="twitter logo"
+            />
+          </a>
+          <a
+            className={styles['social-wrapper']}
+            href="https://www.facebook.com/checkdMedia/"
+          >
+            <img
+              className={styles['social-logo']}
+              src="http://cdn.checkd.media/images/facebook.png"
+              alt="facebook logo"
+            />
+          </a>
+          <a
+            className={styles['social-wrapper']}
+            href="https://www.instagram.com/checkdmedia"
+          >
+            <img
+              className={styles['social-logo']}
+              src="http://cdn.checkd.media/images/instagram-2.png"
+              alt="instagram logo"
+            />
+          </a>
+          <a
+            className={styles['social-wrapper']}
+            href="https://www.linkedin.com/company/checkd-media"
+          >
+            <img
+              className={styles['social-logo']}
+              src="http://cdn.checkd.media/images/linkedin.png"
+              alt="linkedin logo"
+            />
+          </a>
         </div>
       </div>
     </div>
@@ -58,4 +80,3 @@ function Footer() {
 }
 
 export default Footer;
-

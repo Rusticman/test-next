@@ -21,7 +21,7 @@ class News extends Component {
 
   render() {
     const { posts, news } = this.props;
-
+    console.log('NEWS:', news);
     const headline = idx(
       this.props.news,
       headline => headline.meta.block_hero.headline

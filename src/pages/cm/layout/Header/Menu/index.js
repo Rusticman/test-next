@@ -59,19 +59,29 @@ class Menu extends React.Component {
         })}
       >
         <li className={cx({ active: this._isActive('news') })}>
-          <Link href="/news">News</Link>
+          <Link href="/news">
+            <a href="/news">News</a>
+          </Link>
         </li>
         <li className={cx({ active: this._isActive('about') })}>
-          <Link href="/about">About</Link>
+          <Link href="/about">
+            <a href="/about">About</a>
+          </Link>
         </li>
         <li className={cx({ active: this._isActive('partners') })}>
-          <Link href="/partners">Partners</Link>
+          <Link href="/partners">
+            <a href="/partners">Partners</a>
+          </Link>
         </li>
         <li className={cx({ active: this._isActive('what-we-do') })}>
-          <Link href="/what-we-do">What We Do</Link>
+          <Link href="/what-we-do">
+            <a href="/what-we-do">What We Do</a>
+          </Link>
         </li>
         <li className={cx({ active: this._isActive('join-us') })}>
-          <Link href="/join-us">Join Us</Link>
+          <Link href="/join-us">
+            <a href="/join-us">Join Us</a>
+          </Link>
         </li>
       </ul>
     );
@@ -133,7 +143,9 @@ class Menu extends React.Component {
       >
         <div className="mask" />
         <div className="content">
-          <Link href={to}>{text}</Link>
+          <Link href={to}>
+            <a href={to}>{text}</a>
+          </Link>
         </div>
       </div>
     );

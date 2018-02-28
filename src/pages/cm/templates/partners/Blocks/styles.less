@@ -1,0 +1,65 @@
+@import "../../../variables.less";
+
+.blocks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  margin:0 20%;
+  padding: 10px 0px;
+}
+
+@media screen and (min-width:1760px){
+  .blocks {
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  }
+}
+
+.background {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 700px;
+  opacity: 0.2;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.container {
+  box-shadow: 0 0 56px -12px rgba(0, 0, 0, 0.75);
+}
+
+
+.block {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all .6s ease;
+  color: #ffffff;
+  .filter(50%);
+
+  h3 {
+    font-size: 32px;
+    color: inherit;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 1);
+  }
+
+  p {
+    font-size: 16px;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 1);
+  }
+}

@@ -17,6 +17,8 @@ module.exports = {
           datastore: 'core',
           attributes: {
             id: { type: 'number', autoMigrations: { autoIncrement: true } },
+            created_at: { type: 'number', autoCreatedAt: true },
+            updated_at: { type: 'number', autoUpdatedAt: true },
           },
         },
       },

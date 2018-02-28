@@ -8,12 +8,12 @@ import Blocks from './Blocks';
 class Partners extends React.Component {
   static async getInitialProps({ query }) {
     return {
-      partners: await Content.find({ parent: query.id}),
+      subpartners: await Content.find({ parent: query.id }),
     };
   }
 
   render() {
-    const { title, partners } = this.props;
+    const { title, subpartners } = this.props;
 
     return (
       <React.Fragment>
@@ -27,7 +27,7 @@ class Partners extends React.Component {
           h2="Who we work with"
           image="//cdn.checkd.media/images/bq5a0ki6-lg.jpg"
         />
-        <Blocks partners={partners} />
+        <Blocks partners={subpartners} />
       </React.Fragment>
     );
   }

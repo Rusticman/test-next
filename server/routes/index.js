@@ -24,8 +24,10 @@ module.exports = {
     const promises = [];
 
     promises.push(Content.findOne({ slug: slug || 'homepage', ...filter }));
+
     if (childSlug)
       promises.push(Content.findOne({ slug: childSlug, ...filter }));
+
     if (babySlug) promises.push(Content.findOne({ slug: babySlug, ...filter }));
 
     const [error, contents] = await A2A(promises);
@@ -34,7 +36,9 @@ module.exports = {
     }
 
     if (contents && contents[0]) {
-      const { id, slug: contentSlug, meta } = contents[0];
+      const { id, slug: contentSlug, meta } =
+        contents[2] || contents[1] || contents[0];
+
       if (meta.template) {
         return next.render(
           req,

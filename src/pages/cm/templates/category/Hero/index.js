@@ -2,7 +2,6 @@ import React from 'react';
 
 import animateScrollTo from 'animated-scroll-to';
 import Container from '../../../layout/Container';
-import ArrowIcon from '../../../../../components/Icon/angleDoubleDown';
 import styles from './styles.less';
 
 function Hero({ h1, h2, image, scrollTo }) {
@@ -25,10 +24,10 @@ function Hero({ h1, h2, image, scrollTo }) {
             <div
               className={styles.arrows}
               role="button"
-              aria-label="Find out more"
+              aria-label={'Find out more'}
               onClick={() => animateScrollTo(scrollTo)}
             >
-              <ArrowIcon />
+
             </div>
           </div>
         </Container>

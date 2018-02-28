@@ -1,3 +1,4 @@
+import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { readFileSync } from 'fs';
 
@@ -10,7 +11,7 @@ if (process.env.NODE_ENV === 'production') {
 export default class extends Document {
   render() {
     return (
-      <html>
+      <html lang="en">
         <Head>
           <link rel="stylesheet" href={`/_next/static/style.css${version}`} />
         </Head>

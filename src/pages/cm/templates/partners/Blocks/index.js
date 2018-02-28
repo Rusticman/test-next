@@ -9,7 +9,7 @@ class Blocks extends React.Component {
     return (
       <div className={styles.blocks}>
         {this.props.partners.map((partner) => {
-          const { id, title, meta } = partner;
+          const { slug, title, meta } = partner;
 
           const image = idx(meta, m => m.image);
 
@@ -17,7 +17,7 @@ class Blocks extends React.Component {
             <Block
               img={image}
               title={title}
-              to={`partners/${id}`}
+              to={`partners/${slug}`}
             />
           );
         })}

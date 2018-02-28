@@ -8,7 +8,6 @@ import Bars from '../../../../../components/Icon/bars';
 import styles from './styles.less';
 
 class Menu extends React.Component {
-
   static propTypes = {
     transparent: PropTypes.bool,
   };
@@ -31,7 +30,7 @@ class Menu extends React.Component {
     });
   }
 
-  _isActive = (base) => {
+  _isActive = base => {
     const path = this.state.path.split('/').filter(Boolean)[0];
     return base === path;
   };
@@ -60,19 +59,29 @@ class Menu extends React.Component {
         })}
       >
         <li className={cx({ active: this._isActive('news') })}>
-          <Link href="/news">News</Link>
+          <Link href="/news">
+            <a href="/news">News</a>
+          </Link>
         </li>
         <li className={cx({ active: this._isActive('about') })}>
-          <Link href="/about">About</Link>
+          <Link href="/about">
+            <a href="/about">About</a>
+          </Link>
         </li>
         <li className={cx({ active: this._isActive('partners') })}>
-          <Link href="/partners">Partners</Link>
+          <Link href="/partners">
+            <a href="/partners">Partners</a>
+          </Link>
         </li>
         <li className={cx({ active: this._isActive('what-we-do') })}>
-          <Link href="/what-we-do">What We Do</Link>
+          <Link href="/what-we-do">
+            <a href="/what-we-do">What We Do</a>
+          </Link>
         </li>
         <li className={cx({ active: this._isActive('join-us') })}>
-          <Link href="/join-us">Join Us</Link>
+          <Link href="/join-us">
+            <a href="/join-us">Join Us</a>
+          </Link>
         </li>
       </ul>
     );
@@ -94,11 +103,31 @@ class Menu extends React.Component {
           <Bars />
         </div>
         <div className={cx(styles.fullscreen, { [styles.hide]: !isOpen })}>
-          {this.renderMobileBlock('News', '/news', '//cdn.checkd.media/images/foobar.jpg')}
-          {this.renderMobileBlock('About Us', '/about', '//cdn.checkd.media/images/foobar.jpg')}
-          {this.renderMobileBlock('Partners', '/', '//cdn.checkd.media/images/foobar.jpg')}
-          {this.renderMobileBlock('Brands', '/', '//cdn.checkd.media/images/foobar.jpg')}
-          {this.renderMobileBlock('Join Us', '/', '//cdn.checkd.media/images/foobar.jpg')}
+          {this.renderMobileBlock(
+            'News',
+            '/news',
+            '//cdn.checkd.media/images/foobar.jpg'
+          )}
+          {this.renderMobileBlock(
+            'About Us',
+            '/about',
+            '//cdn.checkd.media/images/foobar.jpg'
+          )}
+          {this.renderMobileBlock(
+            'Partners',
+            '/',
+            '//cdn.checkd.media/images/foobar.jpg'
+          )}
+          {this.renderMobileBlock(
+            'Brands',
+            '/',
+            '//cdn.checkd.media/images/foobar.jpg'
+          )}
+          {this.renderMobileBlock(
+            'Join Us',
+            '/',
+            '//cdn.checkd.media/images/foobar.jpg'
+          )}
         </div>
       </React.Fragment>
     );
@@ -115,7 +144,7 @@ class Menu extends React.Component {
         <div className="mask" />
         <div className="content">
           <Link href={to}>
-            {text}
+            <a href={to}>{text}</a>
           </Link>
         </div>
       </div>
@@ -125,12 +154,8 @@ class Menu extends React.Component {
   render() {
     return (
       <div>
-        <div className={styles.desktop}>
-          {this.renderDesktop()}
-        </div>
-        <div className={styles.mobile}>
-          {this.renderMobile()}
-        </div>
+        <div className={styles.desktop}>{this.renderDesktop()}</div>
+        <div className={styles.mobile}>{this.renderMobile()}</div>
       </div>
     );
   }

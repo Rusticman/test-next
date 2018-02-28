@@ -1,0 +1,70 @@
+@import "../../../variables.less";
+
+h3 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  padding: 2px 30%;
+}
+
+.jobs {
+  display: flex;
+  justify-content: center;
+}
+
+.container > div{
+  padding: 1px 10px;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+
+}
+
+.cta {
+  transition: all 0.3s ease-out;
+  display: inline-block;
+  color: #8dbf33;
+  border: 2px solid #8dbf33;
+  border-radius: 3px;
+  margin-top: 5px;
+  font-size: 11px;
+  padding: 5px 10px;
+  width: 62px;
+
+  &:hover {
+    border-color: transparent;
+    background-color: @accent-color;
+    color: @secondary-color;
+    cursor: pointer;
+  }
+}
+
+.title {
+  border-style: solid;
+  border-width: 1px;
+  border-color: transparent;
+  display: inline-block;
+  padding: 2px 8px;
+  color: #333;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.description {
+  display: inline-block;
+  padding: 2px 8px;
+}
+
+.avatar {
+  text-align: right;
+}
+
+.date {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 14px;
+  line-height: 22px;
+  padding: 2px 8px;
+}

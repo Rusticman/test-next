@@ -1,4 +1,5 @@
 import React from 'react';
+import idx from 'idx';
 
 import Page from '../../layout/Page';
 import Hero from '../../layout/Hero';
@@ -13,7 +14,6 @@ class Join extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const { block_hero } = this.props.join.meta;
 
     const headline = idx(block_hero, bh => bh.headline);

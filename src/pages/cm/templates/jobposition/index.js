@@ -20,6 +20,7 @@ class JobPosition extends React.PureComponent {
         />
         <About about={about} />
       </React.Fragment>
+    );
   }
 }
 

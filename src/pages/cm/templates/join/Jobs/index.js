@@ -17,11 +17,12 @@ class Jobs extends React.Component {
                   <div className={styles.item}>
                     <img
                       src="https://cdn.checkd.media/favicons/cm.png"
-                      alt="Checkd Media" />
+                      alt="Checkd Media"
+                    />
                   </div>
                   <div className={styles.content}>
                     <div className={styles.title}>{item.title}</div>
-                    <div className={styles.date}>{'01/01/2018'}</div>
+                    <div className={styles.date}>01/01/2018</div>
                     <div className={styles.description}>{job_description}</div>
                   </div>
                   <div className={styles.item}>

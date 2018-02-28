@@ -1,7 +1,7 @@
 import React from 'react';
 import idx from 'idx';
 import Header from '../../layout/Header';
-import Hero from './Hero';
+import Hero from '../../layout/Hero';
 import About from './About';
 import Page from '../../layout/Page';
 

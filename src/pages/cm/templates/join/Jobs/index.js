@@ -13,7 +13,7 @@ class Jobs extends React.Component {
               const { job_description } = metaData.block_about_job;
 
               return (
-                <div className={styles.container}>
+                <div key={i} className={styles.container}>
                   <div className={styles.item}>
                     <img
                       src="https://cdn.checkd.media/favicons/cm.png"

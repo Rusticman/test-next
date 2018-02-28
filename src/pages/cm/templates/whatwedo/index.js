@@ -8,7 +8,7 @@ import Hero from '../../layout/Hero';
 class WhatWeDo extends Component {
 
   render() {
-    const { block_hero, block_services } = this.props.meta;
+    const { block_hero, block_services } = this.props.whatwedo.meta;
 
     const headline = idx(block_hero, bh => bh.headline || '');
     const secondary = idx(block_hero, bh => bh.secondary || '');

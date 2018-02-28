@@ -27,7 +27,6 @@ function Hero({ h1, h2, image, scrollTo }) {
               aria-label={'Find out more'}
               onClick={() => animateScrollTo(scrollTo)}
             >
-
             </div>
           </div>
         </Container>

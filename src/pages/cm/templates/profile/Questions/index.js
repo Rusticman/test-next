@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 import styles from '../styles.less';
 
 class Questions extends Component {
@@ -24,12 +25,10 @@ class Questions extends Component {
     }
 
     return (
-      <React.Fragment>
+      <div className={styles.questions}>
         {block_questions.map((item, i) => {
-
-
           return (
-            <div className={styles['question-container' + (i + column)]}
+            <div className={styles['question-container']}
                  key={'questions-' + i}
             >
               <div className={styles.q}>
@@ -41,7 +40,7 @@ class Questions extends Component {
             </div>
           );
         })}
-      </React.Fragment>
+      </div>
     );
   }
 }

@@ -13,21 +13,13 @@ class About extends React.Component {
       <Container>
         <div className={styles.about}>
           <h2>Skills</h2>
-          <p>
-            {skills}
-          </p>
+          <p>{skills}</p>
           <h2>Benefits</h2>
-          <p>
-            {benefits}
-          </p>
+          <p>{benefits}</p>
           <h2>Main Duties</h2>
-          <p>
-            {main_duties}
-          </p>
+          <p>{main_duties}</p>
           <h2>Job Description</h2>
-          <p>
-            {job_description}
-          </p>
+          <p>{job_description}</p>
           <Button href="/about">Apply</Button>
         </div>
       </Container>

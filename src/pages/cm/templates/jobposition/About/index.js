@@ -7,7 +7,6 @@ import styles from './styles.less';
 
 class About extends React.Component {
   render() {
-    console.log(this.props);
     const { skills, benefits, main_duties, job_description } = this.props.about;
     return (
       <Container>

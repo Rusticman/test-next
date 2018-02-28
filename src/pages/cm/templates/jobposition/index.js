@@ -11,8 +11,6 @@ class JobPosition extends React.PureComponent {
     const headline = idx(meta, m => m.block_hero.job_position);
     const about = idx(meta, m => m.block_about_job);
 
-    console.log(this.props.jobposition);
-
     return (
       <React.Fragment>
         <Header transparent offsetTop={10} />

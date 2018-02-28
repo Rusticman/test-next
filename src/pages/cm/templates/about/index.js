@@ -37,11 +37,11 @@ function About({ about }) {
         <div className={cx(styles.people, styles.width)}>
           <Person
             image="http://cdn.checkd.media/images/w9yqp79-xl.jpg"
-            to='/profile/639'
+            to='/about/lee-struggles'
           />
           <Person
             image="http://cdn.checkd.media/images/pjtqp4e-xl.jpg"
-            to='/profile/654'
+            to='/about/jamie-knowlson'
           />
         </div>
       </div>

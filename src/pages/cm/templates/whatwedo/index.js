@@ -3,12 +3,14 @@ import Page from '../../layout/Page';
 import idx from 'idx';
 import Content from './Content';
 import Header from '../../layout/Header';
+import Footer from '../../layout/Footer';
+
 import Hero from '../../layout/Hero';
 
 class WhatWeDo extends Component {
 
   render() {
-    const { block_hero, block_services } = this.props.meta;
+    const { block_hero, block_services } = this.props.whatwedo.meta;
 
     const headline = idx(block_hero, bh => bh.headline || '');
     const secondary = idx(block_hero, bh => bh.secondary || '');
@@ -26,6 +28,7 @@ class WhatWeDo extends Component {
           description={secondary}
         />
         <Content content={content} />
+        <Footer />
       </React.Fragment>
     );
   }

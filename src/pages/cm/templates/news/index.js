@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Page from '../../layout/Page';
 import Header from '../../layout/Header';
+import Footer from '../../layout/Footer';
 import Hero from '../../layout/Hero';
 import Posts from './Posts';
 import idx from 'idx';
@@ -39,6 +40,7 @@ class News extends Component {
           description={secondary || 'no description'}
         />
         <Posts posts={this.props.posts} />
+        <Footer />
       </React.Fragment>
     );
   }

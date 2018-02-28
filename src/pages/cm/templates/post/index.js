@@ -2,6 +2,7 @@ import React from 'react';
 import Page from '../../layout/Page';
 import idx from 'idx';
 import Header from '../../layout/Header';
+import Footer from '../../layout/Footer';
 import Hero from '../../layout/Hero';
 import DraftRender from '../../../../components/DraftRender';
 import { mediaUrl } from '../../../../helpers';
@@ -27,6 +28,7 @@ class Post extends React.Component {
             )}
           </div>
         </div>
+        <Footer />
       </React.Fragment>
     );
   }

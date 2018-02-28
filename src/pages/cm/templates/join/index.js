@@ -4,6 +4,8 @@ import idx from 'idx';
 import Page from '../../layout/Page';
 import Hero from '../../layout/Hero';
 import Header from '../../layout/Header';
+import Footer from '../../layout/Footer';
+
 import Jobs from './Jobs';
 
 class Join extends React.Component {
@@ -31,6 +33,7 @@ class Join extends React.Component {
           description={secondary}
         />
         <Jobs jobs={this.props.jobs} />
+        <Footer />
       </React.Fragment>
     );
   }

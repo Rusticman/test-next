@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Header from '../../layout/Header';
 import Page from '../../layout/Page';
-import Hero from './Hero';
+import Hero from '../../layout/Hero';
 import Blocks from './Blocks';
 
 class Partners extends React.Component {
@@ -13,7 +13,10 @@ class Partners extends React.Component {
   }
 
   render() {
-    const { title, subpartners } = this.props;
+    const { partners, subpartners } = this.props;
+    const { title } = partners;
+
+    console.log(title);
 
     return (
       <React.Fragment>
@@ -22,9 +25,7 @@ class Partners extends React.Component {
         </Head>
         <Header transparent offsetTop={10} />
         <Hero
-          scrollTo={500}
-          h1={title}
-          h2="Who we work with"
+          headline={title}
           image="//cdn.checkd.media/images/bq5a0ki6-lg.jpg"
         />
         <Blocks partners={subpartners} />

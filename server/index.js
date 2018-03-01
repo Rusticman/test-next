@@ -40,6 +40,9 @@ global.next = require('next')({ dev, dir: './src' });
   await initializeWaterline();
   await initializeRediBox();
   await initializeRoutes();
+  
+  // serve on the root path
+  next.server.get('/robots.txt', (req, res) => next.serveStatic(req, res, join(__dirname, '../src/static', '/robots.txt')));
 
   next.server.listen(port, host, err => {
     if (err) throw err;

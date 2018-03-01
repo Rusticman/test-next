@@ -3,6 +3,7 @@ import Head from 'next/head';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 
 import Document from '../../../../components/Document';
+import tagManager from '../../../../scripts/tagManager';
 
 import './styles.less';
 
@@ -26,6 +27,7 @@ const Page = ComposedComponent => {
           <link rel="shortcut icon" type="image/png" href={FAV_ICON} />
           <link rel="shortcut icon" href={FAV_ICON} />
           <link rel="apple-touch-icon" href={FAV_ICON} />
+          <script dangerouslySetInnerHTML={{ __html: tagManager('GTM-TQHW98B') }} />
         </Head>
         <ComposedComponent {...extendedProps} />
       </Document>

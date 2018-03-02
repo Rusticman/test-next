@@ -57,7 +57,7 @@ apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
   name: blog-cms-next
-  namespace: development
+  namespace: checkd-cms
 spec:
   maxReplicas: 10
   metrics:
@@ -70,6 +70,8 @@ spec:
     apiVersion: apps/v1beta1
     kind: Deployment
     name: blog-cms-next
+  conditions:
+    ableToScale: true
 status:
   observedGeneration: 1
   currentReplicas: 1

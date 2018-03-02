@@ -81,4 +81,4 @@ status:
       currentAverageUtilization: 0
       currentAverageValue: 0
   conditions:
-  - status: "True"
+  - type: Available

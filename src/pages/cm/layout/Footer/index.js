@@ -39,7 +39,7 @@ function Footer() {
           >
             <img
               className={styles['social-logo']}
-              src="http://cdn.checkd.media/images/twitter.png"
+              src="https://cdn.checkd.media/images/twitter.png"
               alt="twitter logo"
             />
           </a>
@@ -49,7 +49,7 @@ function Footer() {
           >
             <img
               className={styles['social-logo']}
-              src="http://cdn.checkd.media/images/facebook.png"
+              src="https://cdn.checkd.media/images/facebook.png"
               alt="facebook logo"
             />
           </a>
@@ -59,7 +59,7 @@ function Footer() {
           >
             <img
               className={styles['social-logo']}
-              src="http://cdn.checkd.media/images/instagram-2.png"
+              src="https://cdn.checkd.media/images/instagram-2.png"
               alt="instagram logo"
             />
           </a>
@@ -69,7 +69,7 @@ function Footer() {
           >
             <img
               className={styles['social-logo']}
-              src="http://cdn.checkd.media/images/linkedin.png"
+              src="https://cdn.checkd.media/images/linkedin.png"
               alt="linkedin logo"
             />
           </a>

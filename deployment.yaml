@@ -24,7 +24,7 @@ spec:
         run: blog-cms-next
     spec:
       containers:
-      - image: PUT THE IMAGE URL FROM DOCKER BUILD HERE
+      - image: gcr.io/project/example:1234
         name: blog-cms-next
         env:
         - name: NODE_ENV
@@ -57,7 +57,7 @@ apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
   name: blog-cms-next
-  namespace: developmen
+  namespace: development
 spec:
   maxReplicas: 10
   metrics:

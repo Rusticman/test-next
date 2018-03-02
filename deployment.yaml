@@ -82,3 +82,4 @@ status:
       currentAverageValue: 0
   conditions:
   - type: Available
+    status: "True"

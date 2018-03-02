@@ -70,8 +70,6 @@ spec:
     apiVersion: apps/v1beta1
     kind: Deployment
     name: blog-cms-next
-  conditions:
-    ableToScale: true
 status:
   observedGeneration: 1
   currentReplicas: 1
@@ -82,3 +80,5 @@ status:
       name: cpu
       currentAverageUtilization: 0
       currentAverageValue: 0
+  conditions:
+    ableToScale: true

@@ -27,7 +27,7 @@ class Partners extends React.Component {
         <Header transparent offsetTop={10} />
         <Hero
           headline={title}
-          image="//cdn.checkd.media/images/bq5a0ki6-lg.jpg"
+          image="https://cdn.checkd.media/images/bq5a0ki6-lg.jpg"
         />
         <Blocks partners={subpartners} />
         <Footer />

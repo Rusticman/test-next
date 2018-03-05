@@ -2,11 +2,11 @@ require('isomorphic-unfetch');
 require('./utils');
 
 const cors = require('cors');
-const helmet = require('helmet');
 const express = require('express');
 const compression = require('compression');
 
 const { initializeRoutes } = require('./routes');
+const { initializeSitemaps } = require('./services/sitemaps');
 const { initializeRediBox } = require('./services/redibox');
 const { initializeWaterline } = require('./services/waterline');
 
@@ -17,6 +17,8 @@ const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 
 global.next = require('next')({ dev, dir: './src' });
+
+const ROOT = ['robots.txt'];
 
 (async () => {
   await next.prepare();
@@ -34,15 +36,11 @@ global.next = require('next')({ dev, dir: './src' });
 
   // next.server.use(compression({ threshold: 0 }));
 
-  next.server.use(helmet());
-
   // internal services
   await initializeWaterline();
+  await initializeSitemaps('http://localhost:3000'); // TODO pass in full host
   await initializeRediBox();
-  await initializeRoutes();
-  
-  // serve on the root path
-  next.server.get('/robots.txt', (req, res) => next.serveStatic(req, res, join(__dirname, '../src/static', '/robots.txt')));
+  await initializeRoutes(ROOT);
 
   next.server.listen(port, host, err => {
     if (err) throw err;

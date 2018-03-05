@@ -1,4 +1,5 @@
 /* eslint-disable global-require */
+const { join } = require('path');
 
 const types = ['post', 'page', 'category'];
 
@@ -66,7 +67,12 @@ module.exports = {
   /**
    * Bootstraps all the routes defined above onto express router
    */
-  initializeRoutes() {
+  initializeRoutes(rootFiles = []) {
+    // Serve files on the root from the static directory
+    rootFiles.forEach((file) => {
+      next.server.get(`/${file}`, (req, res) => next.serveStatic(req, res, join(__dirname, '../../src/static', `/${file}`)));
+    });
+
     const routes = Object.entries(module.exports);
 
     for (let i = 0; i < routes.length; i++) {

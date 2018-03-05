@@ -9,7 +9,7 @@ function Block({ title, description, img, to }) {
         href={to}
         className={styles.block}
         style={{
-          backgroundImage: `url(//cdn.checkd.media/images/${img}-lg.jpg)`,
+          backgroundImage: `url(${img})`,
         }}
       >
         <div className={styles.layer} />

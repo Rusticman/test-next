@@ -1,5 +1,6 @@
 import React from 'react';
 import idx from 'idx';
+import { mediaUrl } from '../../../../../helpers';
 
 import Block from './../../../layout/Block';
 import styles from './styles.less';
@@ -11,7 +12,7 @@ class Blocks extends React.Component {
         {this.props.partners.map((partner) => {
           const { slug, title, meta } = partner;
 
-          const image = idx(meta, m => m.image);
+          const image = idx(meta, m => mediaUrl(m.image, 'lg'));
 
           return (
             <Block

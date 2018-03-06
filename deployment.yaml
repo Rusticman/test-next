@@ -34,8 +34,8 @@ spec:
           initialDelaySeconds: 15
           timeoutSeconds: 30
           periodSeconds: 10
-          successThreshold: 2
-          failureThreshold: 4
+          successThreshold: 1
+          failureThreshold: 3
         env:
         - name: NODE_ENV
           value: production

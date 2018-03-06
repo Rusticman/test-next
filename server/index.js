@@ -32,7 +32,7 @@ global.next = require('next')({ dev, dir: './src' });
     })
   );
 
-  // next.server.use(compression({ threshold: 0 }));
+  if (!dev) next.server.use(compression({ threshold: 0 }));
 
   next.server.use(helmet());
 

@@ -14,7 +14,7 @@ const customHost = process.env.HOST;
 const host = customHost || null;
 const prettyHost = customHost || 'localhost';
 const port = parseInt(process.env.PORT, 10) || 3000;
-const dev = process.env.NODE_ENV !== 'production';
+global.dev = process.env.NODE_ENV !== 'production';
 
 global.next = require('next')({ dev, dir: './src' });
 
@@ -40,7 +40,7 @@ global.next = require('next')({ dev, dir: './src' });
   await initializeWaterline();
   await initializeRediBox();
   await initializeRoutes();
-  
+
   // serve on the root path
   next.server.get('/robots.txt', (req, res) => next.serveStatic(req, res, join(__dirname, '../src/static', '/robots.txt')));
 

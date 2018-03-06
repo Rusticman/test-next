@@ -2,10 +2,17 @@ import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { readFileSync } from 'fs';
 
-let version = '';
+// no longer needed
+// let version = '';
+// if (!dev) {
+//   version = `?v=${readFileSync(`${process.cwd()}/src/.next/BUILD_ID`)}`;
+// }
 
-if (process.env.NODE_ENV === 'production') {
-  version = `?v=${readFileSync(`${process.cwd()}/src/.next/BUILD_ID`)}`;
+let css = '';
+if (!dev) {
+  css = readFileSync(`${process.cwd()}/src/.next/static/style.css`, {
+    encoding: 'utf8',
+  });
 }
 
 export default class extends Document {
@@ -13,7 +20,8 @@ export default class extends Document {
     return (
       <html lang="en">
         <Head>
-          <link rel="stylesheet" href={`/_next/static/style.css${version}`} />
+          {dev && <link rel="stylesheet" href="/_next/static/style.css" />}
+          {!dev && <style>{css}</style>}
         </Head>
         <body>
           <Main />

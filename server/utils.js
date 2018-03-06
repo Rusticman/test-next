@@ -51,7 +51,7 @@ global.BRAND = brand;
  *
  *    // 5) non promise values
  *
- *        const [ error, nothingHere ] = await A2A(new Error('Just a foo in a bar world'));
+ *        const [ error, nothingHere ] = await A2A(new error('Just a foo in a bar world'));
  *        if (error) profit(); // ?
  *
  *        const [ nothingHere, myThing ] = await A2A('A thing string');

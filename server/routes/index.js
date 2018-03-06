@@ -38,7 +38,7 @@ module.exports = {
     if (contents && contents[0]) {
       const { id, slug: contentSlug, meta } =
       contents[2] || contents[1] || contents[0];
-      console.log('TEMPLATE', meta);
+
       if (meta.template) {
         return next.render(
           req,
@@ -54,7 +54,6 @@ module.exports = {
       );
       console.warn('-'.repeat(80));
     }
-
     // 404 page
     return next.render(req, res, `/${BRAND}/http/404`);
   },

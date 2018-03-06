@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import hoistNonReactStatics from 'hoist-non-react-statics';
+import idx from 'idx';
 
 import Document from '../../../../components/Document';
 import tagManager from '../../../../scripts/tagManager';
@@ -15,8 +16,8 @@ const Page = ComposedComponent => {
       ...props,
     };
     const { url: { query } } = props;
-    extendedProps[query.meta.template] = query;
-
+    const hasMeta = idx(query, query => query.meta.template);
+    if (hasMeta) extendedProps[query.meta.template] = query;
     return (
       <Document>
         <Head>

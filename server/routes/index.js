@@ -37,14 +37,14 @@ module.exports = {
 
     if (contents && contents[0]) {
       const { id, slug: contentSlug, meta } =
-        contents[2] || contents[1] || contents[0];
+      contents[2] || contents[1] || contents[0];
 
       if (meta.template) {
         return next.render(
           req,
           res,
           `/${BRAND}/templates/${meta.template}`,
-          contents[2] || contents[1] || contents[0]
+          contents[2] || contents[1] || contents[0],
         );
       }
 
@@ -54,7 +54,6 @@ module.exports = {
       );
       console.warn('-'.repeat(80));
     }
-
     // 404 page
     return next.render(req, res, `/${BRAND}/http/404`);
   },

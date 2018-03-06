@@ -8,12 +8,8 @@ import idx from 'idx';
 class Category extends React.PureComponent {
   render() {
     const { title, meta } = this.props.category;
-    console.log(meta);
     const headline = idx(meta, m => m.block_hero.headline);
     const image = idx(meta, m => m.image);
-
-    console.log(image);
-
     return (
       <React.Fragment>
         <Head>

@@ -9,8 +9,7 @@ class Jobs extends React.Component {
         <div className={styles.jobs}>
           <div>
             {this.props.jobs.map((item, i) => {
-              const metaData = item.meta;
-              const { job_description } = metaData.block_about_job;
+              const { job_description } = item.meta.block_about_job;
 
               return (
                 <div key={i} className={styles.container}>

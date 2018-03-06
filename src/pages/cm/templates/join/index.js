@@ -1,6 +1,6 @@
 import React from 'react';
 import idx from 'idx';
-
+import Head from 'next/head';
 import Page from '../../layout/Page';
 import Hero from '../../layout/Hero';
 import Header from '../../layout/Header';
@@ -16,13 +16,17 @@ class Join extends React.Component {
   }
 
   render() {
-    const { block_hero } = this.props.join.meta;
-
+    const { meta: { block_hero, title, description } } = this.props.join;
     const headline = idx(block_hero, bh => bh.headline);
     const secondary = idx(block_hero, bh => bh.secondary);
-
     return (
       <React.Fragment>
+        <Head>
+          <title>
+            {title}
+          </title>
+          <meta name={'description'} content={description} />
+        </Head>
         <Header
           transparent
           offsetTop={10}

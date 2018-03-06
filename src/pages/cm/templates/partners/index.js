@@ -14,20 +14,17 @@ class Partners extends React.Component {
   }
 
   render() {
-    const { partners, subpartners } = this.props;
-    const { title } = partners;
-
-    console.log(title);
-
+    const { partners: { meta: { block_hero: { headline }, title, description } }, partners, subpartners } = this.props;
     return (
       <React.Fragment>
         <Head>
           <title>{title}</title>
+          <meta name={'description'} content={description} />
         </Head>
         <Header transparent offsetTop={10} />
         <Hero
-          headline={title}
-          image="https://cdn.checkd.media/images/bq5a0ki6-lg.jpg"
+          headline={headline}
+          image="//cdn.checkd.media/images/bq5a0ki6-lg.jpg"
         />
         <Blocks partners={subpartners} />
         <Footer />

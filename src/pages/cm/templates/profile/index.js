@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
 import Hero from './Hero';
@@ -11,6 +12,9 @@ import AboutMe from './AboutMe';
 function Profile({ profile }) {
   return (
     <React.Fragment>
+      <Head>
+        <title>{profile.title}</title>
+      </Head>
       <Header
         transparent
         offsetTop={10}

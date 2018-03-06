@@ -1,7 +1,16 @@
 import React from 'react';
+import Head from 'next/head';
+
 
 function NotFound() {
-  return <div>404 - Page Not Found</div>;
+  return (
+    <React.Fragment>
+      <Head>
+        <title>404 page</title>
+      </Head>
+      <div>404 - Page Not Found</div>
+    </React.Fragment>
+  );
 }
 
 export default NotFound;

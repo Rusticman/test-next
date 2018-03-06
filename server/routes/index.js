@@ -7,6 +7,11 @@ const filter = {
   // status: 'publish', // TODO add back in when pages published.
 };
 
+let version = '';
+if (!dev) {
+  version = `/${readFileSync(`${process.cwd()}/src/.next/BUILD_ID`)}`;
+}
+
 module.exports = {
   /** ------------
    *     ROUTES
@@ -21,7 +26,8 @@ module.exports = {
       return next.getRequestHandler()(req, res);
     }
 
-    const cacheKey = `/${BRAND}/${slug || 'homepage'}/${childSlug}/${babySlug}`;
+    const cacheKey = `cache:/${BRAND}/${slug ||
+      'homepage'}/${childSlug}/${babySlug}${version}`;
 
     // check redis cache first
     const [getCacheError, cachedHtml] = await A2A(Cache.get(cacheKey));

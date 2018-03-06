@@ -1,4 +1,5 @@
 /* eslint-disable global-require */
+const { readFileSync } = require('fs');
 
 const types = ['post', 'page', 'category'];
 
@@ -8,7 +9,7 @@ const filter = {
 };
 
 let version = '';
-if (!dev) {
+if (process.env.NODE_ENV === 'production') {
   version = `/${readFileSync(`${process.cwd()}/src/.next/BUILD_ID`)}`;
 }
 

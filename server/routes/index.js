@@ -72,8 +72,6 @@ module.exports = {
         }
 
         // TODO cache set to 1 hour for now - should probably be 4 hours and auto delete items on update in CMS
-        // TODO server bootup should check redis for a key based on next build version, if no key exists then clear all
-        // TODO     cached items and set the key to lock others resetting on restarts.
         if (!getCacheError) await A2A(Cache.set(cacheKey, html, 3600));
 
         return res.send(html);

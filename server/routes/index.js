@@ -28,15 +28,17 @@ module.exports = {
     }
 
     const cacheKey = `cache:/${BRAND}/${slug ||
-      'homepage'}/${childSlug}/${babySlug}${version}`;
+    'homepage'}/${childSlug}/${babySlug}${version}`;
 
     // check redis cache first
     const [getCacheError, cachedHtml] = await A2A(Cache.get(cacheKey));
     if (!dev && !getCacheError && cachedHtml) {
+      console.log('CACHE HIT ' + cacheKey);
       res.setHeader('x-cache', 'HIT');
       res.send(cachedHtml);
       return undefined;
     }
+    console.log('CACHE MISS ' + cacheKey);
     res.setHeader('x-cache', 'MISS');
     if (dev) console.log(`Cache skipped for key ${cacheKey} as we're in DEV.`);
     if (getCacheError) console.error(getCacheError);
@@ -55,7 +57,7 @@ module.exports = {
 
     if (contents && contents[0]) {
       const { id, slug: contentSlug, meta } =
-        contents[2] || contents[1] || contents[0];
+      contents[2] || contents[1] || contents[0];
 
       if (meta.template) {
         const [renderError, html] = await A2A(

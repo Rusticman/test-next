@@ -7,7 +7,7 @@ import styles from './styles.less';
 function Blocks() {
   return (
     <div className={styles.blocks}>
-      <LazyLoad>
+      <LazyLoad height={200} once offset={100}>
         <div className={styles.background} />
       </LazyLoad>
       <div className={styles.container}>

@@ -10,7 +10,7 @@ import styles from './styles.less';
 function Footer() {
   return (
     <div className={styles.container}>
-      <LazyLoad>
+      <LazyLoad height={200} once offset={100}>
         <div className={styles.content}>
           <img
             className={styles.logo}

@@ -41,11 +41,11 @@ function About({ about }) {
       <div className={styles.responsive}>
         <div className={cx(styles.people, styles.width)}>
           <Person
-            image="http://cdn.checkd.media/images/w9yqp79-xl.jpg"
+            image="https://cdn.checkd.media/images/w9yqp79-xl.jpg"
             to='/about/lee-struggles'
           />
           <Person
-            image="http://cdn.checkd.media/images/pjtqp4e-xl.jpg"
+            image="https://cdn.checkd.media/images/pjtqp4e-xl.jpg"
             to='/about/jamie-knowlson'
           />
         </div>

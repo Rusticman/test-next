@@ -23,15 +23,10 @@ class News extends Component {
 
   render() {
     const { posts, news } = this.props;
-    const { meta:{ title, description} } = news;
-    const headline = idx(
-      this.props.news,
-      headline => headline.meta.block_hero.headline
-    );
-    const secondary = idx(
-      this.props.news,
-      secondary => secondary.meta.block_hero.secondary
-    );
+    const headline = idx(news, n => n.meta.block_hero.headline);
+    const secondary = idx(news, n => n.meta.block_hero.secondary);
+    const title = idx(news, n => n.meta.title);
+    const description = idx(news, n => n.meta.description);
     return (
       <React.Fragment>
         <Head>
@@ -44,7 +39,7 @@ class News extends Component {
           headline={headline || 'no headline'}
           description={secondary || 'no description'}
         />
-        <Posts posts={this.props.posts} />
+        <Posts posts={posts} />
         <Footer />
       </React.Fragment>
     );

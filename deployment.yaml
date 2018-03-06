@@ -1,0 +1,89 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: blog-cms-next
+  name: blog-cms-next
+  namespace: checkd-cms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: blog-cms-next
+  strategy:
+    rollingUpdate:
+      maxSurge: 3
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: blog-cms-next
+    spec:
+      containers:
+      - image: gcr.io/project/example:1234
+        name: blog-cms-next
+        env:
+        - name: NODE_ENV
+          value: production
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: "1"
+          requests:
+            cpu: "0.75"
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: blog-cms-next
+  name: blog-cms-next
+  namespace: checkd-cms
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: blog-cms-next
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: blog-cms-next
+  namespace: checkd-cms
+spec:
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      targetAverageUtilization: 50
+  minReplicas: 3
+  scaleTargetRef:
+    apiVersion: apps/v1beta1
+    kind: Deployment
+    name: blog-cms-next
+status:
+  observedGeneration: 1
+  currentReplicas: 1
+  desiredReplicas: 1
+  currentMetrics:
+  - type: Resource
+    resource:
+      name: cpu
+      currentAverageUtilization: 0
+      currentAverageValue: 0
+  conditions:
+  - type: Available
+    status: "True"

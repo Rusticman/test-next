@@ -12,7 +12,6 @@ import styles from './styles.less';
 function Post({ post }) {
   const { meta: { title, description } } = post;
   const featureImg = idx(post, p => p.meta.featured_image);
-  console.log('POST', post.meta);
   return (
     <React.Fragment>
       <Head>

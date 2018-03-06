@@ -22,12 +22,21 @@ const Page = ComposedComponent => {
         <Head>
           <link
             href="https://fonts.googleapis.com/css?family=Lato:300,400"
-            rel="stylesheet"
+            as="style"
+            rel="preload"
           />
+          <noscript>
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Lato:300,400"
+            />
+          </noscript>
           <link rel="shortcut icon" type="image/png" href={FAV_ICON} />
           <link rel="shortcut icon" href={FAV_ICON} />
           <link rel="apple-touch-icon" href={FAV_ICON} />
-          <script dangerouslySetInnerHTML={{ __html: tagManager('GTM-TQHW98B') }} />
+          <script
+            dangerouslySetInnerHTML={{ __html: tagManager('GTM-TQHW98B') }}
+          />
         </Head>
         <ComposedComponent {...extendedProps} />
       </Document>

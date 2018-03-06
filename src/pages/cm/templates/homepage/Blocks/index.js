@@ -7,7 +7,9 @@ import styles from './styles.less';
 function Blocks() {
   return (
     <div className={styles.blocks}>
-      <div className={styles.background} />
+      <LazyLoad>
+        <div className={styles.background} />
+      </LazyLoad>
       <div className={styles.container}>
         <LazyLoad>
           <Block

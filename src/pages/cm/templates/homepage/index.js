@@ -12,18 +12,18 @@ import Footer from '../../layout/Footer';
 
 class Homepage extends React.Component {
   render() {
-    const { title } = this.props;
-
+    const { homepage: { meta: { block_hero: { headline, secondary }, description, title } }  } = this.props;
     return (
       <React.Fragment>
         <Head>
           <title>{title}</title>
+          <meta name={'description'} content={description} />
         </Head>
         <Header transparent offsetTop={10} />
         <Hero
           scrollTo={500}
-          h1="A unique social marketing company"
-          h2="Established communities await your brand"
+          h1={headline}
+          h2={secondary}
           image="//cdn.checkd.media/images/bq5a0ki6-lg.jpg"
         />
         <Partners />

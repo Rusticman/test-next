@@ -14,7 +14,7 @@ const customHost = process.env.HOST;
 const host = customHost || null;
 const prettyHost = customHost || 'localhost';
 const port = parseInt(process.env.PORT, 10) || 3000;
-const dev = process.env.NODE_ENV !== 'production';
+global.dev = process.env.NODE_ENV !== 'production';
 
 global.next = require('next')({ dev, dir: './src' });
 
@@ -34,13 +34,16 @@ const ROOT = ['robots.txt'];
     })
   );
 
-  // next.server.use(compression({ threshold: 0 }));
+  if (!dev) next.server.use(compression({ threshold: 0 }));
 
   // internal services
   await initializeWaterline();
   await initializeSitemaps('http://localhost:3000'); // TODO pass in full host
   await initializeRediBox();
   await initializeRoutes(ROOT);
+
+  // serve on the root path
+  next.server.get('/robots.txt', (req, res) => next.serveStatic(req, res, join(__dirname, '../src/static', '/robots.txt')));
 
   next.server.listen(port, host, err => {
     if (err) throw err;

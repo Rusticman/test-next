@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import hoistNonReactStatics from 'hoist-non-react-statics';
+import idx from 'idx';
 
 import Document from '../../../../components/Document';
 import tagManager from '../../../../scripts/tagManager';
@@ -15,19 +16,28 @@ const Page = ComposedComponent => {
       ...props,
     };
     const { url: { query } } = props;
-    extendedProps[query.meta.template] = query;
-
+    const hasMeta = idx(query, query => query.meta.template);
+    if (hasMeta) extendedProps[query.meta.template] = query;
     return (
       <Document>
         <Head>
           <link
             href="https://fonts.googleapis.com/css?family=Lato:300,400"
-            rel="stylesheet"
+            as="style"
+            rel="preload"
           />
+          <noscript>
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Lato:300,400"
+            />
+          </noscript>
           <link rel="shortcut icon" type="image/png" href={FAV_ICON} />
           <link rel="shortcut icon" href={FAV_ICON} />
           <link rel="apple-touch-icon" href={FAV_ICON} />
-          <script dangerouslySetInnerHTML={{ __html: tagManager('GTM-TQHW98B') }} />
+          <script
+            dangerouslySetInnerHTML={{ __html: tagManager('GTM-TQHW98B') }}
+          />
         </Head>
         <ComposedComponent {...extendedProps} />
       </Document>

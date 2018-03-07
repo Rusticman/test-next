@@ -7,15 +7,20 @@ import Header from '../../layout/Header';
 import Map from './Map';
 import Office from './Office';
 import Person from './Person';
+import Head from 'next/head';
+
 
 import styles from './styles.less';
 
 function About({ about }) {
-  const { meta: { block_hero } } = about;
+  const { meta: { block_hero, title, description } } = about;
   const { headline, secondary } = block_hero;
-
   return (
     <React.Fragment>
+      <Head>
+        <title>{title}</title>
+        <meta name={'description'} content={description} />
+      </Head>
       <Header
         transparent
         offsetTop={285}

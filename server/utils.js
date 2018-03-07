@@ -1,10 +1,16 @@
 const { mapToProps, isObject, flatten } = require('deeps');
 const { Logger, transports } = require('winston');
+const { readFileSync } = require('fs');
 
 // setup logger global
 global.Log = new Logger({
   transports: [new transports.Console(require('./config/logger'))],
 });
+
+global.BUILD_ID = '';
+if (process.env.NODE_ENV === 'production') {
+  global.BUILD_ID = `/${readFileSync(`${process.cwd()}/src/.next/BUILD_ID`)}`;
+}
 
 // setup brand global
 let brand = process.env.BRAND;

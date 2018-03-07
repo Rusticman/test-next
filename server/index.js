@@ -6,7 +6,6 @@ const express = require('express');
 const compression = require('compression');
 
 const { initializeRoutes } = require('./routes');
-const { initializeSitemaps } = require('./services/sitemaps');
 const { initializeRediBox } = require('./services/redibox');
 const { initializeWaterline } = require('./services/waterline');
 
@@ -14,16 +13,19 @@ const customHost = process.env.HOST;
 const host = customHost || null;
 const prettyHost = customHost || 'localhost';
 const port = parseInt(process.env.PORT, 10) || 3000;
-global.dev = process.env.NODE_ENV !== 'production';
 
+global.PORT = port;
+global.HOST = prettyHost;
+global.dev = process.env.NODE_ENV !== 'production';
 global.next = require('next')({ dev, dir: './src' });
+
+global.DOMAIN_ROOT = HOST === 'localhost' ? `${HOST}:${PORT}` : `${HOST}`;
 
 (async () => {
   await next.prepare();
   next.server = express();
 
   // middleware
-
   next.server.use(
     cors({
       origin:
@@ -36,7 +38,6 @@ global.next = require('next')({ dev, dir: './src' });
 
   // internal services
   await initializeWaterline();
-  await initializeSitemaps('http://localhost:3000'); // TODO pass in full host
   await initializeRediBox();
   await initializeRoutes();
 

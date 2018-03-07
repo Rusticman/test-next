@@ -18,8 +18,6 @@ global.dev = process.env.NODE_ENV !== 'production';
 
 global.next = require('next')({ dev, dir: './src' });
 
-const ROOT = ['robots.txt'];
-
 (async () => {
   await next.prepare();
   next.server = express();
@@ -40,10 +38,7 @@ const ROOT = ['robots.txt'];
   await initializeWaterline();
   await initializeSitemaps('http://localhost:3000'); // TODO pass in full host
   await initializeRediBox();
-  await initializeRoutes(ROOT);
-
-  // serve on the root path
-  next.server.get('/robots.txt', (req, res) => next.serveStatic(req, res, join(__dirname, '../src/static', '/robots.txt')));
+  await initializeRoutes();
 
   next.server.listen(port, host, err => {
     if (err) throw err;

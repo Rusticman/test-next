@@ -42,7 +42,7 @@
     "redibox": "^2.3.0",
     "redibox-hook-cache": "^1.0.4",
     "require-all": "^2.2.0",
-    "sails-postgresql": "^1.0.0-12",
+    "sails-postgresql": "1.0.0-12",
     "sitemap": "^1.13.0",
     "waterline": "^0.13.1",
     "winston": "^2.4.0"

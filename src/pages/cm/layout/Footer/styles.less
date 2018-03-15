@@ -6,20 +6,41 @@
   background-color: #3D3D59;
   color: #ffffff;
 
+  .breakpoint(mobile, {
+    padding: 30px 0;
+  });
+
   .sections {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin-bottom: 50px;
+
+    .breakpoint(mobile, {
+      grid-template-columns: 1fr 1fr;
+    });
 
     ul {
       padding: 0;
       margin: 0;
       list-style: none;
       line-height: 20px;
+
+      a {
+        color: #ffffff;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
 
   .copy {
     text-align: right;
+  }
+
+  hr {
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 70px 0;
   }
 }

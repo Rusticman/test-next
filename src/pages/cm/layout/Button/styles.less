@@ -1,17 +1,17 @@
 @import "../../variables.less";
 
 .button {
-  color: @primary-color;
-  font-size: 1.8rem;
+  font-size: 2rem;
   display: inline-block;
   border-radius: 20px;
-  box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.2);
   padding: 10px 30px;
   transition: box-shadow 0.3s;
+  background: @gradient;
+  color: #ffffff;
 
   &:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.3);
+    background: @gradient-hover;
   }
 }
 

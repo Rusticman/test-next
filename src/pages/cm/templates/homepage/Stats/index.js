@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyLoad from 'react-lazyload';
 
 import Container from '../../../layout/Container';
 import Heading from '../../../layout/Heading';
@@ -10,24 +11,25 @@ import styles from './styles.less';
 function Stats() {
   return (
     <React.Fragment>
-      <Heading>Our impact</Heading>
+      <Heading>Make an impact</Heading>
       <Container className={styles.stats}>
         <Stat
-          value={'1,200'}
-          description={'People reached last month'}
-          color={'#98c63d'}
+          value={'3.5 million'}
+          description={'Avg. monthly website hits'}
+          color={'#779F2D'}
         />
         <Stat
-          value={'1.5 million'}
-          description={'People reached last month'}
-          color={'#f57223'}
+          value={'2.2 million'}
+          description={'Social media fans'}
+          color={'#F46B15'}
         />
         <Stat
-          value={'392,936'}
-          description={'People reached last month'}
+          value={'1 billion'}
+          description={'Social media user reach'}
           color={'#9013fe'}
         />
       </Container>
+      <div className={styles.backgroundSlant} />
     </React.Fragment>
   );
 }

@@ -1,8 +1,31 @@
+@import "../../../variables.less";
+
+.backgroundSlant {
+  position: relative;
+
+  &:before {
+    content: ' ';
+    position: absolute;
+    z-index: -1;
+    height: 800px;
+    background: rgba(0, 0, 0, 0.03);
+    top: 200px;
+    right: 0;
+    left: 0;
+    transform: skewY(-6deg);
+    transform-origin: 0;
+  }
+}
+
 .stats {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 70px;
-  margin: 40px 0 150px 0;
+  margin: 100px 0 100px 0;
+
+  .breakpoint(mobile, {
+    grid-template-columns: 1fr;
+  });
 
   .stat {
     text-align: center;
@@ -11,7 +34,7 @@
       font-size: 5rem;
     }
     p {
-
+      font-weight: 300;
     }
   }
 }

@@ -1,5 +1,20 @@
+@import "../../variables.less";
+
 .card {
   background-color: #ffffff;
   padding: 25px;
-  box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1);
+  box-shadow: 0 0 30px 0 rgba(0,0,0,0.1);
+}
+
+.href {
+  display: block;
+  transition: box-shadow 0.2s;
+
+  h2, p {
+    color: @text-color;
+  }
+
+  &:hover {
+    box-shadow: 0 0 30px 0 rgba(0,0,0,0.2);
+  }
 }

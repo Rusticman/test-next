@@ -10,23 +10,33 @@ function validateEmail(email) {
 }
 
 class Subscribe extends React.Component {
+
   state = {
     email: '',
     error: '',
     success: '',
   };
 
+  /**
+   * Update the e-mail address
+   * @param e
+   * @private
+   */
   _updateEmail = e => {
     this.setState({
       email: e.target.value,
     });
   };
 
+  /**
+   * Submit the e-mail if it's valid
+   * @private
+   */
   _submit = () => {
     if (!this.state.email) return;
 
     if (!validateEmail(this.state.email)) {
-      this.setState({
+      return this.setState({
         error: 'Please enter a valid e-mail address.',
         success: '',
       });
@@ -46,22 +56,33 @@ class Subscribe extends React.Component {
         <div className={styles.headline}>
           <Icon /> Keep up with our latest news
         </div>
-        <div className={styles.input}>
-          <input
-            type="text"
-            placeholder="Enter your e-mail address..."
-            onChange={this._updateEmail}
-            aria-label="Subscribe"
-          />
-          <div
-            className={styles.button}
-            role="button"
-            onClick={this._submit}
-            tabIndex={0}
-          >
-            Subscribe
+        {!this.state.success && (
+          <div>
+            <div className={styles.input}>
+              <input
+                type="text"
+                placeholder="Enter your e-mail address..."
+                onChange={this._updateEmail}
+                aria-label="Subscribe"
+              />
+              <div
+                className={styles.button}
+                role="button"
+                onClick={this._submit}
+                tabIndex={0}
+              >
+                Subscribe
+              </div>
+            </div>
+            <div className={styles.message}>{this.state.error}</div>
           </div>
-        </div>
+        )}
+
+        {!!this.state.success && (
+          <div className={styles.success}>
+            {this.state.success}
+          </div>
+        )}
       </div>
     );
   }

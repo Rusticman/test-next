@@ -7,7 +7,7 @@ import Container from '../Container';
 
 function Footer({ children }) {
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       {!!children && (
         <Container>
           {children}
@@ -59,7 +59,7 @@ function Footer({ children }) {
       <Container className={styles.copy}>
         &copy; 2017-2018 Checkd Media
       </Container>
-    </div>
+    </footer>
   );
 }
 

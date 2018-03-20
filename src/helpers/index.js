@@ -1,4 +1,4 @@
-export function mediaUrl(slug, size) {
+export function mediaUrl(slug, size = 'lg') {
   return `https://cdn.checkd.media/images/${slug}-${size}.jpg`;
 }
 

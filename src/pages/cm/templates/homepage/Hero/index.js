@@ -28,21 +28,23 @@ function Hero() {
       <Gradient />
       <Container>
         <div className={styles.content}>
-          <div>
-            <h1 className={styles.slogan}>
+          <div className={styles.slogan}>
+            <h1>
               <Delay ms={1500}>
-                <Typist>We are a unique social <br /> marketing company.</Typist>
+                <Typist>We are a unique social marketing company.</Typist>
               </Delay>
             </h1>
-            <Delay ms={1000}>
-              <SlideLeft duration="0.3s">
-                <div className={styles.bounce}>
-                  <Button href="/about">Find out more</Button>
-                </div>
-              </SlideLeft>
-            </Delay>
+            <div className={styles.button}>
+              <Delay ms={1000}>
+                <SlideLeft duration="0.3s">
+                  <div className={styles.bounce}>
+                    <Button href="/about">Find out more</Button>
+                  </div>
+                </SlideLeft>
+              </Delay>
+            </div>
           </div>
-          <div>
+          <div className={styles.graphic}>
             <Delay ms={1000}>
               <SlideRight duration="0.3s">
                 <div dangerouslySetInnerHTML={{ __html: illustration() }} />

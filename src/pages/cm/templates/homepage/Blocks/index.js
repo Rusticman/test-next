@@ -21,7 +21,7 @@ function about() {
 
 function Blocks() {
   return (
-    <React.Fragment>
+    <section>
       <Heading>Get to know us</Heading>
       <Container className={styles.blocks}>
         <Card href={'/about'}>
@@ -60,7 +60,7 @@ function Blocks() {
           </div>
         </Card>
       </Container>
-    </React.Fragment>
+    </section>
 
   );
 }

@@ -10,7 +10,6 @@ function validateEmail(email) {
 }
 
 class Subscribe extends React.Component {
-
   state = {
     email: '',
     error: '',
@@ -33,8 +32,6 @@ class Subscribe extends React.Component {
    * @private
    */
   _submit = () => {
-    if (!this.state.email) return;
-
     if (!validateEmail(this.state.email)) {
       return this.setState({
         error: 'Please enter a valid e-mail address.',
@@ -69,6 +66,7 @@ class Subscribe extends React.Component {
                 className={styles.button}
                 role="button"
                 onClick={this._submit}
+                onKeyPress={this._submit}
                 tabIndex={0}
               >
                 Subscribe
@@ -79,9 +77,7 @@ class Subscribe extends React.Component {
         )}
 
         {!!this.state.success && (
-          <div className={styles.success}>
-            {this.state.success}
-          </div>
+          <div className={styles.success}>{this.state.success}</div>
         )}
       </div>
     );

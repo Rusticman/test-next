@@ -12,7 +12,7 @@ import styles from './styles.less';
 class Header extends React.Component {
   render() {
     return (
-      <div className={styles.header}>
+      <header className={styles.header}>
         <Container className={styles.container}>
           <div>
             <Logo />
@@ -21,7 +21,7 @@ class Header extends React.Component {
             <Menu />
           </div>
         </Container>
-      </div>
+      </header>
     );
   }
 }

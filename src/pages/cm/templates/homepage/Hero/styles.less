@@ -1,11 +1,11 @@
 @import "../../../variables.less";
 
 .hero {
+  position: relative;
   height: 90vh;
+  overflow: hidden;
 
-  .breakpoint(tablet, {
-    height: 100vh;
-  });
+  .breakpoint(tablet, { height: 100vh; margin-bottom: 100px; });
 
   .gradient {
     position: absolute;
@@ -15,11 +15,16 @@
     svg {
       position: relative;
       height: 800px;
+
+      .breakpoint(tablet, { display: none; });
     }
 
-    .breakpoint(tablet, {
-      display: none;
-    });
+    .breakpoint(tablet, { position: relative; right: 0; left: 0; top: 0; });
+
+    &:after {
+      .breakpoint(tablet, { content: ' '; position: absolute; top: 0; right: -3000px; left: 0; height: 1800px; background: @gradient; transform: rotate(-113deg); });
+      .breakpoint(700px, { right: -2850px; });
+    }
   }
 
   .content {
@@ -29,18 +34,27 @@
     grid-gap: 100px;
     align-items: center;
 
-    .breakpoint(tablet, {
-      display: block;
-    });
+    .breakpoint(tablet, { margin-top: @header-height; display: flex; height: 50vh; });
 
-    .slogan {
+    .slogan h1 {
+      max-width: 450px;
       height: 100px;
       font-size: 3.5rem;
       padding-bottom: 60px;
+
+      .breakpoint(tablet, { max-width: 100%; text-align: center; });
     }
 
-    .bounce {
-      animation: bounce 3s infinite;
+    .graphic {
+      .breakpoint(tablet, { position: absolute; bottom: -150px; left: 20px; right: 0; z-index: -1; });
+    }
+
+    .button {
+      .breakpoint(tablet, { left: 50%; transform: translateX(-50%); position: absolute; });
+
+      .bounce {
+        animation: bounce 3s infinite;
+      }
     }
   }
 }
@@ -50,9 +64,10 @@
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-14px);
+    transform: translateY(-10px);
   }
   60% {
-    transform: translateY(-7px);
+    transform: translateY(-4px);
   }
 }
+

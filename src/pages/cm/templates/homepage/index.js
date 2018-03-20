@@ -34,7 +34,6 @@ function Homepage({ title, description }) {
 }
 
 function mapStateToProps({ query }) {
-  console.log(query)
   return {
     title: idx(query, q => q.meta.title) || '',
     description: idx(query, q => q.meta.description) || '',

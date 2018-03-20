@@ -25,6 +25,7 @@ const Page = ComposedComponent => {
           <link rel="shortcut icon" type="image/png" href={FAV_ICON} />
           <link rel="shortcut icon" href={FAV_ICON} />
           <link rel="apple-touch-icon" href={FAV_ICON} />
+          <meta name="theme-color" content="#8DBE36" />
           <script
             dangerouslySetInnerHTML={{ __html: tagManager('GTM-TQHW98B') }}
           />

@@ -34,7 +34,11 @@
     grid-gap: 100px;
     align-items: center;
 
-    .breakpoint(tablet, { margin-top: @header-height; display: flex; height: 50vh; });
+    .breakpoint(tablet, {
+      margin-top: @header-height + 50px;
+      display: block;
+      height: 100vh;
+    });
 
     .slogan h1 {
       max-width: 450px;
@@ -46,7 +50,15 @@
     }
 
     .graphic {
-      .breakpoint(tablet, { position: absolute; bottom: -150px; left: 20px; right: 0; z-index: -1; });
+      .breakpoint(tablet, {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        max-width: 500px;
+        margin: 0 auto;
+      });
     }
 
     .button {

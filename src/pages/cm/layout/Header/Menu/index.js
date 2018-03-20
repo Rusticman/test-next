@@ -53,11 +53,7 @@ class Menu extends React.Component {
    */
   renderDesktop() {
     return (
-      <ul
-        className={cx(styles.inline, {
-          [styles.transparent]: this.props.transparent,
-        })}
-      >
+      <ul>
         <li className={cx({ active: this._isActive('news') })}>
           <Link href="/news">
             <a href="/news">News</a>
@@ -102,32 +98,59 @@ class Menu extends React.Component {
         >
           <Bars />
         </div>
-        <div className={cx(styles.fullscreen, { [styles.hide]: !isOpen })}>
-          {this.renderMobileBlock(
-            'News',
-            '/news',
-            '//cdn.checkd.media/images/foobar.jpg'
-          )}
-          {this.renderMobileBlock(
-            'About Us',
-            '/about',
-            '//cdn.checkd.media/images/foobar.jpg'
-          )}
-          {this.renderMobileBlock(
-            'Partners',
-            '/',
-            '//cdn.checkd.media/images/foobar.jpg'
-          )}
-          {this.renderMobileBlock(
-            'Brands',
-            '/',
-            '//cdn.checkd.media/images/foobar.jpg'
-          )}
-          {this.renderMobileBlock(
-            'Join Us',
-            '/',
-            '//cdn.checkd.media/images/foobar.jpg'
-          )}
+        <div className={cx(styles.sidemenu, { [styles.hide]: !isOpen })}>
+          <ul>
+            <li className={cx({ active: this._isActive('news') })}>
+              <Link href="/news">
+                <a href="/news">News</a>
+              </Link>
+            </li>
+            <li className={cx({ active: this._isActive('about') })}>
+              <Link href="/about">
+                <a href="/about">About</a>
+              </Link>
+            </li>
+            <li className={cx({ active: this._isActive('partners') })}>
+              <Link href="/partners">
+                <a href="/partners">Partners</a>
+              </Link>
+            </li>
+            <li className={cx({ active: this._isActive('what-we-do') })}>
+              <Link href="/what-we-do">
+                <a href="/what-we-do">What We Do</a>
+              </Link>
+            </li>
+            <li className={cx({ active: this._isActive('join-us') })}>
+              <Link href="/join-us">
+                <a href="/join-us">Join Us</a>
+              </Link>
+            </li>
+          </ul>
+          {/*{this.renderMobileBlock(*/}
+            {/*'News',*/}
+            {/*'/news',*/}
+            {/*'//cdn.checkd.media/images/foobar.jpg'*/}
+          {/*)}*/}
+          {/*{this.renderMobileBlock(*/}
+            {/*'About Us',*/}
+            {/*'/about',*/}
+            {/*'//cdn.checkd.media/images/foobar.jpg'*/}
+          {/*)}*/}
+          {/*{this.renderMobileBlock(*/}
+            {/*'Partners',*/}
+            {/*'/',*/}
+            {/*'//cdn.checkd.media/images/foobar.jpg'*/}
+          {/*)}*/}
+          {/*{this.renderMobileBlock(*/}
+            {/*'Brands',*/}
+            {/*'/',*/}
+            {/*'//cdn.checkd.media/images/foobar.jpg'*/}
+          {/*)}*/}
+          {/*{this.renderMobileBlock(*/}
+            {/*'Join Us',*/}
+            {/*'/',*/}
+            {/*'//cdn.checkd.media/images/foobar.jpg'*/}
+          {/*)}*/}
         </div>
       </React.Fragment>
     );

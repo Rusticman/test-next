@@ -22,7 +22,7 @@ function illustration() {
   `;
 }
 
-function Hero() {
+function Hero({ headline }) {
   return (
     <div className={styles.hero}>
       <Gradient />
@@ -31,7 +31,7 @@ function Hero() {
           <div className={styles.slogan}>
             <h1>
               <Delay ms={1500}>
-                <Typist>We are a unique social marketing company.</Typist>
+                <Typist>{headline}</Typist>
               </Delay>
             </h1>
             <div className={styles.button}>

@@ -14,6 +14,7 @@ const FAV_ICON = 'https://cdn.checkd.media/favicons/cm.png';
 
 const Page = ComposedComponent => {
   function Decorator(props) {
+    console.log(props)
     const initialState = {
       query: props.url.query,
     };

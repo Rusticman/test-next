@@ -1,0 +1,27 @@
+@import "../../../variables";
+
+.container {
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 100px 0;
+
+  .staff {
+    display: grid;
+    grid-template-columns: repeat(2, 450px);
+    grid-gap: 50px;
+    justify-content: center;
+
+    .breakpoint(tablet, {
+      grid-template-columns: 1fr;
+    });
+
+    .person {
+      text-align: center;
+
+      img {
+        max-width: 200px;
+        max-height: 200px;
+        border-radius: 50%;
+      }
+    }
+  }
+}

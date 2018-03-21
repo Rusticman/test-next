@@ -8,7 +8,6 @@
   display: grid;
   grid-gap: 35px;
   grid-template-columns: repeat(3, 1fr);
-  margin-bottom: 100px;
 
   .breakpoint(tablet, {
     grid-template-columns: repeat(2, 1fr);
@@ -17,49 +16,4 @@
   .breakpoint(mobile, {
     grid-template-columns: 1fr;
   });
-}
-
-.post {
-  display: grid;
-  grid-template-rows: 280px 280px;
-
-  &.featured {
-    .breakpoint(desktop, {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 280px;
-    });
-  }
-
-  .image {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  .content {
-    padding: 20px;
-
-    .pill {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100px;
-      height: 25px;
-      border-radius: 20px;
-      background: orange;
-      color: #ffffff;
-    }
-
-    h3 {
-      color: rgba(0, 0, 0, 0.5);
-    }
-
-    // TODO maybe component this
-    .readMore {
-      background: @primary-color;
-      padding: 15px 25px;
-      color: #ffffff;
-      border-radius: 30px;
-    }
-  }
 }

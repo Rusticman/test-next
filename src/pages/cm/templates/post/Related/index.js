@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Container from '../../../layout/Container';
-import Card from '../../../layout/Card';
+import Post from '../../../layout/Post';
 
 import styles from './styles.less';
 
@@ -11,15 +11,10 @@ function Related({ related }) {
       <h4>Related News</h4>
       <Container>
         <div className={styles.grid}>
-          <Card>
-            Some content
-          </Card>
-          <Card>
-            Some content
-          </Card>
-          <Card>
-            Some content
-          </Card>
+
+          <Post />
+          <Post />
+          <Post />
         </div>
       </Container>
     </div>

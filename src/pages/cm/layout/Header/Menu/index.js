@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
 import Link from 'next/link';
+import { connect } from 'react-redux';
+import cx from 'classnames';
 
 import Bars from '../../../../../components/Icon/bars';
 
@@ -53,7 +54,11 @@ class Menu extends React.Component {
    */
   renderDesktop() {
     return (
-      <ul>
+      <ul
+        className={cx({
+          [styles.dark]: this.props.theme === 'dark',
+        })}
+      >
         <li className={cx({ active: this._isActive('news') })}>
           <Link href="/news">
             <a href="/news">News</a>
@@ -126,31 +131,6 @@ class Menu extends React.Component {
               </Link>
             </li>
           </ul>
-          {/*{this.renderMobileBlock(*/}
-            {/*'News',*/}
-            {/*'/news',*/}
-            {/*'//cdn.checkd.media/images/foobar.jpg'*/}
-          {/*)}*/}
-          {/*{this.renderMobileBlock(*/}
-            {/*'About Us',*/}
-            {/*'/about',*/}
-            {/*'//cdn.checkd.media/images/foobar.jpg'*/}
-          {/*)}*/}
-          {/*{this.renderMobileBlock(*/}
-            {/*'Partners',*/}
-            {/*'/',*/}
-            {/*'//cdn.checkd.media/images/foobar.jpg'*/}
-          {/*)}*/}
-          {/*{this.renderMobileBlock(*/}
-            {/*'Brands',*/}
-            {/*'/',*/}
-            {/*'//cdn.checkd.media/images/foobar.jpg'*/}
-          {/*)}*/}
-          {/*{this.renderMobileBlock(*/}
-            {/*'Join Us',*/}
-            {/*'/',*/}
-            {/*'//cdn.checkd.media/images/foobar.jpg'*/}
-          {/*)}*/}
         </div>
       </React.Fragment>
     );
@@ -184,4 +164,10 @@ class Menu extends React.Component {
   }
 }
 
-export default Menu;
+function mapStateToProps({ theme }) {
+  return {
+    theme,
+  };
+}
+
+export default connect(mapStateToProps)(Menu);

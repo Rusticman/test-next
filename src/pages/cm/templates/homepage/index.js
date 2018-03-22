@@ -12,14 +12,14 @@ import Stats from './Stats';
 import Blocks from './Blocks';
 import Subscribe from './Subscribe';
 
-function Homepage(stuff) {console.log('HEADLINE', stuff);
+function Homepage({ title, description }) {
   return (
     <React.Fragment>
       <Head>
-        <title>{'title'}</title>
+        <title>{title}</title>
         <meta
           name="description"
-          content={'description'}
+          content={description}
         />
       </Head>
       <Header />
@@ -37,7 +37,6 @@ function mapStateToProps({ query }) {
   return {
     title: idx(query, q => q.meta.title) || '',
     description: idx(query, q => q.meta.description) || '',
-
   };
 }
 

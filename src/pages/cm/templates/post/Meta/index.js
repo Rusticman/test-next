@@ -4,15 +4,16 @@ import { connect } from 'react-redux';
 import styles from './styles.less';
 
 import Card from '../../../layout/Card';
+import Container from '../../../layout/Container';
 
 function Meta({ title }) {
   return (
-    <div className={styles.meta}>
+    <Container>
       <Card>
         <h1>{title}</h1>
         <p></p>
       </Card>
-    </div>
+    </Container>
   );
 }
 

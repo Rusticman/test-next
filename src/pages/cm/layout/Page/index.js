@@ -8,12 +8,13 @@ import Document from '../../../../components/Document';
 import tagManager from '../../../../scripts/tagManager';
 import store from '../../../../redux';
 
-import './styles.less';
+import styles from './styles.less';
 
 const FAV_ICON = 'https://cdn.checkd.media/favicons/cm.png';
 
 const Page = ComposedComponent => {
   function Decorator(props) {
+    console.log(props)
     const initialState = {
       query: props.url.query,
     };
@@ -31,10 +32,12 @@ const Page = ComposedComponent => {
           />
         </Head>
         <Provider store={store(initialState)}>
-          <ComposedComponent
-            {...props}
-            getParam={func => idx(props.url.query, func) || ''}
-          />
+          <div className={styles.page}>
+            <ComposedComponent
+              {...props}
+              getParam={func => idx(props.url.query, func) || ''}
+            />
+          </div>
         </Provider>
       </Document>
     );

@@ -14,30 +14,40 @@ import Related from './Related';
 
 import styles from './styles.less';
 
-function Post({ title, description }) {
-  return (
-    <React.Fragment>
-      <Head>
-        <title>{title}</title>
-        <meta
-          name="description"
-          content={description}
-        />
-      </Head>
-      <Header />
-      <FeaturedImage />
-      <div className={styles.content}>
-        <Meta />
-        <Content />
-        <Related />
-      </div>
-      <Footer />
-    </React.Fragment>
-  );
+class Post extends React.Component {
+
+  static async getInitialProps() {
+    return {
+      related: [],
+    }
+  };
+
+  render() {
+    const { title, description } = this.props;
+
+    return (
+      <React.Fragment>
+        <Head>
+          <title>{title}</title>
+          <meta
+            name="description"
+            content={description}
+          />
+        </Head>
+        <Header />
+        <FeaturedImage />
+        <div className={styles.content}>
+          <Meta />
+          <Content />
+          <Related related={related} />
+        </div>
+        <Footer />
+      </React.Fragment>
+    );
+  }
 }
 
 function mapStateToProps({ query }) {
-  console.log(query)
   return {
     title: idx(query, q => q.meta.title) || '',
     description: idx(query, q => q.meta.description) || '',

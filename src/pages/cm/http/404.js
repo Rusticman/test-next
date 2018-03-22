@@ -1,25 +1,21 @@
 import React from 'react';
 import Head from 'next/head';
-import idx from 'idx';
-import Page from '../layout/Page';
 
-function NotFound({ notFound }) {
-  const description = idx(notFound, nf => nf.meta.description);
-  const title = idx(notFound, nf => nf.meta.title);
+import Page from '../layout/Page';
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
+
+function NotFound() {
   return (
     <React.Fragment>
       <Head>
-        <title>{title}</title>
-        <meta name={'description'} content={description} />
+        <title>Page Not Found</title>
       </Head>
+      <Header />
       <div>404 - Page Not Found</div>
+      <Footer />
     </React.Fragment>
   );
 }
 
 export default Page(NotFound);
-
-NotFound.getInitialProps = async () => {
-  const notFound = await Content.findOne({ slug: 'not-found' });
-  return { notFound };
-};

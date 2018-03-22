@@ -7,25 +7,31 @@ import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
 import Page from '../../layout/Page';
 
+import Hero from './Hero';
+import Blocks from './Blocks';
+
 class Partners extends React.Component {
   static async getInitialProps({ query }) {
     return {
-      subpartners: await Content.find({ parent: query.id }),
+      partners: await Content.find({ parent: query.id }),
     };
   }
+
   render() {
-    const { subpartners, headline, description, title } = this.props;
+    const { title, description, partners } = this.props;
+
     return (
       <React.Fragment>
         <Head>
           <title>{title}</title>
-          <meta name={'description'} content={description} />
+          <meta
+            name="description"
+            content={description}
+          />
         </Head>
-        <Header transparent offsetTop={10} />
-        <Hero
-          headline={headline}
-          image="//cdn.checkd.media/images/bq5a0ki6-lg.jpg"
-        />
+        <Header />
+        <Hero />
+        <Blocks partners={partners} />
         <Footer />
       </React.Fragment>
     );
@@ -40,5 +46,5 @@ function mapStateToProps({ query }) {
   };
 }
 
-
 export default Page(connect(mapStateToProps)(Partners));
+

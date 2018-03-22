@@ -19,6 +19,9 @@ module.exports = {
   // content
   'get *': require('./content'),
 
+  // api
+  'post /api/email': require('./api/email'),
+
   /** ------------
    *   INTERNALS
    *  ----------- */

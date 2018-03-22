@@ -1,32 +1,24 @@
 import React from 'react';
-import idx from 'idx';
-import { mediaUrl } from '../../../../../helpers';
 
-import Block from './../../../layout/Block';
+import Container from '../../../layout/Container';
+
+import Partner from './Partner';
 import styles from './styles.less';
 
-class Blocks extends React.Component {
-  render() {
-    return (
-      <div className={styles.blocks}>
-        {this.props.partners.map((partner, i) => {
-          const { slug, title, meta } = partner;
+function Blocks({ partners }) {
+  partners = new Array(20).fill('herpa derpa');
 
-          const image = idx(meta, m => mediaUrl(m.image, 'lg'));
-
-          return (
-            <React.Fragment key={'subpartner-' + i}>
-            <Block
-              img={image}
-              title={title}
-              to={`partners/${slug}`}
-            />
-            </React.Fragment>
-          );
-        })}
+  return (
+    <Container>
+      <div className={styles.grid}>
+        {partners.map((p, i) => (
+          <div key={i}>
+            <Partner partner={p} />
+          </div>
+        ))}
       </div>
-    );
-  }
+    </Container>
+  );
 }
 
 export default Blocks;

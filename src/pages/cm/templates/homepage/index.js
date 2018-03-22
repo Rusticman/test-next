@@ -10,7 +10,6 @@ import Footer from '../../layout/Footer';
 import Hero from './Hero';
 import Stats from './Stats';
 import Blocks from './Blocks';
-import Subscribe from './Subscribe';
 
 function Homepage({ title, description }) {
   return (
@@ -26,9 +25,7 @@ function Homepage({ title, description }) {
       <Hero />
       <Stats />
       <Blocks />
-      <Footer>
-        <Subscribe />
-      </Footer>
+      <Footer />
     </React.Fragment>
   );
 }

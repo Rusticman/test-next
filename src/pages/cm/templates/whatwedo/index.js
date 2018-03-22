@@ -1,36 +1,42 @@
-import React, { Component } from 'react';
-import Page from '../../layout/Page';
-import idx from 'idx';
+import React from 'react';
 import Head from 'next/head';
-import Content from './Content';
+import { connect } from 'react-redux';
+import idx from 'idx';
+
+import Page from '../../layout/Page';
 import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
 
-import Hero from '../../layout/Hero';
+import Hero from './Hero';
+import Content from './Content';
+import Flowchart from './Flowchart';
 
-function WhatWeDo({ whatwedo }) {
-  const { block_hero, block_services } = whatwedo.meta;
-  const headline = idx(block_hero, bh => bh.headline || '');
-  const secondary = idx(block_hero, bh => bh.secondary || '');
-  const content = idx(block_services, bs => JSON.parse(bs.editor_state));
+function WhatWeDo({ title, description }) {
   return (
     <React.Fragment>
       <Head>
-        <title>{whatwedo.title}</title>
+        <title>{title}</title>
+        <meta
+          name="description"
+          content={description}
+        />
       </Head>
-      <Header
-        transparent
-        offsetTop={10}
-      />
-      <Hero
-        image="https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?auto=format&fit=crop&w=1350&q=80"
-        headline={headline}
-        description={secondary}
-      />
-      <Content content={content} />
+      <Header />
+      <Hero />
+      <Content />
+      <Flowchart />
       <Footer />
     </React.Fragment>
   );
 }
 
-export default Page(WhatWeDo);
+function mapStateToProps({ query }) {
+  return {
+    title: idx(query, q => q.meta.title) || '',
+    description: idx(query, q => q.meta.description) || '',
+  };
+}
+
+export default Page(
+  connect(mapStateToProps)(WhatWeDo)
+);

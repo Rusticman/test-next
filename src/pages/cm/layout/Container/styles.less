@@ -1,4 +1,10 @@
+@import "../../variables.less";
+
 .container {
   display: grid;
-  grid-template-columns: 1fr minmax(0, 1200px) 1fr;
+  grid-template-columns: minmax(20px, 1fr) minmax(0, 1200px) minmax(20px, 1fr);
+
+  @media (max-width: @mobile) {
+    //display: none;
+  }
 }

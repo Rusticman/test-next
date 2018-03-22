@@ -1,17 +1,18 @@
 @import "../../variables.less";
 
 .button {
-  transition: all .3s ease-out;
+  font-size: 2rem;
   display: inline-block;
-  color: @accent-color;
-  font-size: 20px;
-  border: 2px solid @accent-color;
-  border-radius: 3px;
-  padding: 15px 30px;
+  border-radius: 20px;
+  padding: 10px 30px;
+  transition: box-shadow 0.3s;
+  background: @gradient;
+  color: #ffffff;
+  text-align: center;
 
   &:hover {
-    border-color: transparent;
-    background-color: @accent-color;
-    color: @secondary-color;
+    cursor: pointer;
+    background: @gradient-hover;
   }
 }
+

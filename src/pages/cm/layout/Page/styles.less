@@ -1,9 +1,46 @@
+@import "../../variables.less";
+
 body {
-  font-family: 'Lato', sans-serif !important;
+  font-family: 'Work Sans', sans-serif !important;
   overflow-x: hidden;
+  color: @text-color;
 }
 
 hr {
   margin: 20px 0;
   border-color: rgba(0, 0, 0, 0.1);
+}
+
+:global {
+  .Typist .Cursor--blinking {
+    opacity: 1;
+    animation: blink 1s linear infinite;
+  }
+}
+
+@keyframes ~":global(blink)" {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; }
+}
+
+:global(body.menu-open) {
+
+  .page {
+    .breakpoint(tablet, {
+      position: absolute;
+      left: -300px;
+      right: 300px;
+    });
+
+    .breakpoint(mobile, {
+      position: absolute;
+      left: -80vw;
+      right: 80vw;
+    });
+  }
+
 }

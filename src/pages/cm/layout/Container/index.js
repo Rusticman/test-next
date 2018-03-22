@@ -2,11 +2,11 @@ import React from 'react';
 
 import styles from './styles.less';
 
-function Container({ children }) {
+function Container({ children, ...props }) {
   return (
     <div className={styles.container}>
       <div />
-      <div>{children}</div>
+      <div {...props}>{children}</div>
       <div />
     </div>
   );

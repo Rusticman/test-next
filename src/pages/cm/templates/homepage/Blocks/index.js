@@ -1,42 +1,60 @@
 import React from 'react';
-import LazyLoad from 'react-lazyload';
 
-import Block from '../../../layout/Block';
+import Container from '../../../layout/Container';
+import Card from '../../../layout/Card';
+import Heading from '../../../layout/Heading';
+
 import styles from './styles.less';
 
 function Blocks() {
   return (
-    <div className={styles.blocks}>
-      <LazyLoad height={200} once offset={100}>
-        <div className={styles.background} />
-      </LazyLoad>
-      <div className={styles.container}>
-        <Block
-          img="https://images.unsplash.com/photo-1505473478993-e61136811cc4?auto=format&fit=crop&w=1350&q=80"
-          title="News"
-          description="Catch up on what is happening at Checkd.Media"
-          to="/news"
-        />
-        <Block
-          img="https://images.unsplash.com/photo-1493689485253-f07fcbfc731b?auto=format&fit=crop&w=1333&q=80"
-          title="Partners"
-          description="Discover who we work we with"
-          to="/partners"
-        />
-        <Block
-          img="https://images.unsplash.com/photo-1501228286853-24fd91e2c0c4?auto=format&fit=crop&w=1350&q=80"
-          title="What We Do"
-          description="Discover more about what we offer"
-          to="/what-we-do"
-        />
-        <Block
-          img="https://images.unsplash.com/photo-1494707924465-e1426acb48cb?auto=format&fit=crop&w=1350&q=80"
-          title="Join Us"
-          description="Be apart of our ever expenanding team"
-          to="/join-us"
-        />
-      </div>
-    </div>
+    <section>
+      <Heading>Get to know us</Heading>
+      <Container className={styles.blocks}>
+        <Card href={'/about'}>
+          <div className={styles.card}>
+            <div className={styles.graphic}>
+              <img src="https://cdn.checkd.media/illustrations/about.svg" alt="About" />
+            </div>
+            <h2>
+              About Us
+            </h2>
+            <p>
+              {`CheckdMedia has a lot to offer - check out who we are, what we're about and how we can help promote your brand.`}
+            </p>
+          </div>
+        </Card>
+
+        <Card href={'/partners'}>
+          <div className={styles.card}>
+            <div className={styles.graphic}>
+              <img src="https://cdn.checkd.media/illustrations/partners.svg" alt="Partners" />
+            </div>
+            <h2>
+              Partners
+            </h2>
+            <p>
+              {`We've worked with a wide variety of partners and brands - check out our showcase to see some of our latest work.`}
+            </p>
+          </div>
+        </Card>
+
+        <Card href={'/news'}>
+          <div className={styles.card}>
+            <div className={styles.graphic}>
+              <img src="https://cdn.checkd.media/illustrations/news.svg" alt="News" />
+            </div>
+            <h2>
+              News
+            </h2>
+            <p>
+              {`Keep up to date with the latest industry news & announcements.`}
+            </p>
+          </div>
+        </Card>
+      </Container>
+    </section>
+
   );
 }
 

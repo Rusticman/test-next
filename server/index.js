@@ -1,9 +1,10 @@
-require('isomorphic-unfetch');
 require('./utils');
 
 const cors = require('cors');
 const express = require('express');
+const bodyParser = require('body-parser');
 const compression = require('compression');
+const multipart = require('connect-multiparty');
 
 const { initializeRoutes } = require('./routes');
 const { initializeRediBox } = require('./services/redibox');
@@ -33,6 +34,15 @@ global.DOMAIN_ROOT = HOST === 'localhost' ? `${HOST}:${PORT}` : `${HOST}`;
       credentials: true,
     })
   );
+
+  // parse application/json
+  next.server.use(bodyParser.json());
+
+  // multipart forms
+  next.server.use(multipart());
+
+  // parse application/x-www-form-urlencoded
+  next.server.use(bodyParser.urlencoded({ extended: false }));
 
   if (!dev) next.server.use(compression({ threshold: 0 }));
 

@@ -1,0 +1,33 @@
+@import "../../variables.less";
+
+.container {
+  text-align: center;
+  margin-bottom: 45px;
+
+  .heading {
+    color: @text-color;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 400;
+    display: inline-block;
+    font-size: 2.3rem;
+    padding: 10px 20px;
+    border-radius: 20px;
+
+    background: @gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background: #444;
+      background: @gradient;
+      border-radius: 3px;
+    }
+  }
+}

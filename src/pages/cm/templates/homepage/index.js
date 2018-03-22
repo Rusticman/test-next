@@ -1,38 +1,42 @@
 import React from 'react';
 import Head from 'next/head';
+import { connect } from 'react-redux';
+import idx from 'idx';
 
 import Page from '../../layout/Page';
 import Header from '../../layout/Header';
-
-import Hero from './Hero';
-import About from './About';
-import Partners from './Partners';
-import Blocks from './Blocks';
 import Footer from '../../layout/Footer';
 
-class Homepage extends React.Component {
-  render() {
-    const { homepage: { meta: { block_hero: { headline, secondary }, description, title } }  } = this.props;
-    return (
-      <React.Fragment>
-        <Head>
-          <title>{title}</title>
-          <meta name={'description'} content={description} />
-        </Head>
-        <Header transparent offsetTop={10} />
-        <Hero
-          scrollTo={500}
-          h1={headline}
-          h2={secondary}
-          image="//cdn.checkd.media/images/bq5a0ki6-lg.jpg"
+import Hero from './Hero';
+import Stats from './Stats';
+import Blocks from './Blocks';
+
+function Homepage({ title, description }) {
+  return (
+    <React.Fragment>
+      <Head>
+        <title>{title}</title>
+        <meta
+          name="description"
+          content={description}
         />
-        <Partners />
-        <About />
-        <Blocks />
-        <Footer />
-      </React.Fragment>
-    );
-  }
+      </Head>
+      <Header />
+      <Hero />
+      <Stats />
+      <Blocks />
+      <Footer />
+    </React.Fragment>
+  );
 }
 
-export default Page(Homepage);
+function mapStateToProps({ query }) {
+  return {
+    title: idx(query, q => q.meta.title) || '',
+    description: idx(query, q => q.meta.description) || '',
+  };
+}
+
+export default Page(
+  connect(mapStateToProps)(Homepage)
+);

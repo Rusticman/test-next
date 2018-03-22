@@ -2,15 +2,10 @@ import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { readFileSync } from 'fs';
 
-// no longer needed
-// let version = '';
-// if (!dev) {
-//   version = `?v=${readFileSync(`${process.cwd()}/src/.next/BUILD_ID`)}`;
-// }
+const dev = process.env.NODE_ENV !== 'production';
 
-let css = '';
-if (!dev) {
-  css = readFileSync(`${process.cwd()}/src/.next/static/style.css`, {
+function getStyles() {
+  return readFileSync(`${process.cwd()}/src/.next/static/style.css`, {
     encoding: 'utf8',
   });
 }
@@ -20,8 +15,13 @@ export default class extends Document {
     return (
       <html lang="en">
         <Head>
-          {dev && <link rel="stylesheet" href="/_next/static/style.css" />}
-          {!dev && <style>{css}</style>}
+          {dev && (
+            <link
+              rel="stylesheet"
+              href={`/_next/static/style.css?v=${Math.random().toString(32)}`}
+            />
+          )}
+          {!dev && <style dangerouslySetInnerHTML={{ __html: getStyles() }} />}
         </Head>
         <body>
           <Main />

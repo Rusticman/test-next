@@ -1,3 +1,5 @@
+@import "../../../variables";
+
 .block {
   min-height: 300px;
   padding: 100px 0;
@@ -9,5 +11,16 @@
     grid-template-rows: 100%;
     align-items: center;
     grid-gap: 100px;
+
+    .breakpoint(mobile, {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      img {
+        height: 300px;
+        margin-top: 50px;
+      }
+    });
   }
 }

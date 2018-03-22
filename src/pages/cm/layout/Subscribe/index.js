@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Icon from '../../../../../components/Icon/envelope';
+import Icon from '../../../../components/Icon/envelope';
 
 import styles from './styles.less';
 

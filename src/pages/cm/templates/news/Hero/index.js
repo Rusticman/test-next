@@ -8,7 +8,7 @@ function Hero() {
   return (
     <Container className={styles.hero}>
       <h1>CheckdMedia News</h1>
-      <h2>Subscribe now to get updates on the latest CheckdMedia news</h2>
+      <h2>Some title about our news goes here</h2>
     </Container>
   );
 }

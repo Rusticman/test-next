@@ -14,18 +14,14 @@
   }
 
   .breakpoint(tablet, {
-  margin-top: @header-height;
-    grid-template-columns: 1fr 2fr;
-  });
-
-  .breakpoint(mobile, {
-    grid-template-columns: 1fr;
-    grid-template-rows: 50vh 50vh;
-    grid-gap: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: @header-height;
+    height: 100vh;
+    text-align: center;
 
     img {
-      max-height: 100%;
+      height: 300px;
     }
   });
-
 }

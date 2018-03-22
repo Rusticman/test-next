@@ -2,15 +2,15 @@ import React from 'react';
 
 import styles from './styles.less';
 import Container from '../Container';
+import Subscribe from '../Subscribe';
 
 
-
-function Footer({ children }) {
+function Footer({ subscribe }) {
   return (
     <footer className={styles.footer}>
-      {!!children && (
+      {subscribe && (
         <Container>
-          {children}
+          <Subscribe />
           <hr />
         </Container>
       )}
@@ -62,5 +62,9 @@ function Footer({ children }) {
     </footer>
   );
 }
+
+Footer.defaultProps = {
+  subscribe: true,
+};
 
 export default Footer;

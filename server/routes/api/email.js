@@ -3,6 +3,8 @@ const MailChimp = require('./../../services/mailchimp');
 module.exports = async function submitEmail(req, res) {
   const { email } = req.body;
 
+  console.log(email, req.body);
+
   // basic email validations
   if (
     !email ||

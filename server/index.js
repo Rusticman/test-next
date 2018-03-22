@@ -1,4 +1,3 @@
-require('isomorphic-unfetch');
 require('./utils');
 
 const cors = require('cors');

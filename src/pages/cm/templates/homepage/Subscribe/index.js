@@ -31,20 +31,43 @@ class Subscribe extends React.Component {
    * Submit the e-mail if it's valid
    * @private
    */
-  _submit = () => {
-    if (!validateEmail(this.state.email)) {
+  _submit = async () => {
+    const { email } = this.state;
+
+    if (!validateEmail(email)) {
       return this.setState({
         error: 'Please enter a valid e-mail address.',
         success: '',
       });
     }
 
-    // TODO add it
+    try {
+      const res = await fetch('/api/email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
 
-    this.setState({
-      success: 'Thanks, you have subscribed to e-mail updates.',
-      error: '',
-    });
+      if (res.status !== 200) {
+        const { message } = await res.json();
+        this.setState({
+          success: '',
+          error: message || 'Sorry, we are unable to submit tha email address',
+        });
+      } else {
+        this.setState({
+          success: 'Thanks, you have subscribed to e-mail updates.',
+          error: '',
+        });
+      }
+    } catch (e) {
+      this.setState({
+        success: '',
+        error: 'Woops, something went wrong! Please try again.',
+      });
+    }
   };
 
   render() {

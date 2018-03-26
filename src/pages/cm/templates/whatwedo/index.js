@@ -8,7 +8,7 @@ import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
 
 import Hero from './Hero';
-import Content from './Content';
+import EditorContent from '../../../../components/EditorContent';
 import Flowchart from './Flowchart';
 
 function WhatWeDo({ title, description }) {
@@ -23,7 +23,7 @@ function WhatWeDo({ title, description }) {
       </Head>
       <Header />
       <Hero />
-      <Content />
+      <EditorContent />
       <Flowchart />
       <Footer />
     </React.Fragment>

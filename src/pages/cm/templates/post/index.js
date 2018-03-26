@@ -9,7 +9,7 @@ import Footer from '../../layout/Footer';
 
 import FeaturedImage from './FeaturedImage';
 import Meta from './Meta';
-import Content from './Content';
+import Contents from './Contents';
 import Related from './Related';
 
 import styles from './styles.less';
@@ -17,13 +17,21 @@ import styles from './styles.less';
 class Post extends React.Component {
 
   static async getInitialProps() {
+    const related = await Content.find({
+      where: {
+        type: 'post',
+      },
+      limit: 3,
+      sort: 'created_at DESC'
+    });
+
     return {
-      related: [],
-    }
+      related,
+    };
   };
 
   render() {
-    const { title, description } = this.props;
+    const { title, description, related } = this.props;
 
     return (
       <React.Fragment>
@@ -38,7 +46,7 @@ class Post extends React.Component {
         <FeaturedImage />
         <div className={styles.content}>
           <Meta />
-          <Content />
+          <Contents />
           <Related related={related} />
         </div>
         <Footer />

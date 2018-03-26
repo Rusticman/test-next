@@ -9,10 +9,10 @@ import Stat from './Stat';
 
 import styles from './styles.less';
 
-function Stats({ statistic_1_value, statistic_1_description, statistic_2_value, statistic_2_description, statistic_3_value, statistic_3_description }) {
+function Stats({ statistic_1_value, statistic_1_description, statistic_2_value, statistic_2_description, statistic_3_value, statistic_3_description, subheader }) {
   return (
     <React.Fragment>
-      <Heading>Make an impact</Heading>
+      <Heading>{subheader}</Heading>
       <Container className={styles.stats}>
         <Stat
           value={statistic_1_value}
@@ -43,6 +43,7 @@ function mapStateToProps({ query }) {
     statistic_2_description: idx(query, q => q.meta.block_statistic_2.description) || '',
     statistic_3_value: idx(query, q => q.meta.block_statistic_3.value) || '',
     statistic_3_description: idx(query, q => q.meta.block_statistic_3.description) || '',
+    subheader: idx(query, q => q.meta.firstSubheader) || '',
   };
 }
 

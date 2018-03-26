@@ -7,10 +7,10 @@ import Heading from '../../../layout/Heading';
 
 import styles from './styles.less';
 
-function Blocks({ block_description_1, block_description_2, block_description_3}) {
+function Blocks({ block_title_1, block_description_1, block_title_2, block_description_2, block_title_3, block_description_3, subheader }) {
   return (
     <section>
-      <Heading>Get to know us</Heading>
+      <Heading>{subheader}</Heading>
       <Container className={styles.blocks}>
         <Card href={'/about'}>
           <div className={styles.card}>
@@ -19,7 +19,7 @@ function Blocks({ block_description_1, block_description_2, block_description_3}
                    alt="About" />
             </div>
             <h2>
-              About Us
+              {block_title_1}
             </h2>
             <p>
               {block_description_1}
@@ -34,7 +34,7 @@ function Blocks({ block_description_1, block_description_2, block_description_3}
                    alt="Partners" />
             </div>
             <h2>
-              Partners
+              {block_title_2}
             </h2>
             <p>
               {block_description_2}
@@ -49,7 +49,7 @@ function Blocks({ block_description_1, block_description_2, block_description_3}
                    alt="News" />
             </div>
             <h2>
-              News
+              {block_title_3}
             </h2>
             <p>
               {block_description_3}
@@ -64,9 +64,13 @@ function Blocks({ block_description_1, block_description_2, block_description_3}
 
 function mapStateToProps({ query }) {
   return {
+    block_title_1: idx(query, q => q.meta.block_page_1.title) || '',
     block_description_1: idx(query, q => q.meta.block_page_1.description) || '',
+    block_title_2: idx(query, q => q.meta.block_page_2.title) || '',
     block_description_2: idx(query, q => q.meta.block_page_2.description) || '',
+    block_title_3: idx(query, q => q.meta.block_page_3.title) || '',
     block_description_3: idx(query, q => q.meta.block_page_3.description) || '',
+    subheader: idx(query, q => q.meta.secondSubheader) || '',
   };
 }
 

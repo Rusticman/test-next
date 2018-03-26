@@ -12,7 +12,8 @@ const conversionHelpers = {
     return undefined;
   },
   blockToHTML(block, originalText) {
-    const type = block.type.toLowerCase().split(':')[0];
+    let type = block.type.toLowerCase().split(':')[0];
+    if(type === 'header-two') type = 'headerTwo';
     if (BLOCKS[type]) return BLOCKS[type](block, originalText);
     return '';
   },

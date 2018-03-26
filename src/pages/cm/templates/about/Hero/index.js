@@ -4,7 +4,7 @@ import idx from 'idx';
 import Container from '../../../layout/Container';
 import styles from './styles.less';
 
-function Hero({ headline }) {
+function Hero({ headline, secondary }) {
   return (
     <Container>
       <div className={styles.hero}>
@@ -12,8 +12,8 @@ function Hero({ headline }) {
           <img src="https://cdn.checkd.media/illustrations/about.svg" alt="About Us" />
         </div>
         <div>
-          <h1>About Us</h1>
-          <p>{headline}</p>
+          <h1>{headline}</h1>
+          <p>{secondary}</p>
         </div>
       </div>
     </Container>
@@ -23,6 +23,7 @@ function Hero({ headline }) {
 function mapStateToProps({ query }) {
   return {
     headline: idx(query, q => q.meta.headline) || '',
+    secondary: idx(query, q => q.meta.secondary) || '',
   };
 }
 

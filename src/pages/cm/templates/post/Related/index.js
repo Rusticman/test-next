@@ -11,10 +11,7 @@ function Related({ related }) {
       <h4>Related News</h4>
       <Container>
         <div className={styles.grid}>
-
-          <Post />
-          <Post />
-          <Post />
+          {related.map((p, i) => <React.Fragment key={'related-' + i}><Post post={p} /></React.Fragment>)}
         </div>
       </Container>
     </div>

@@ -22,7 +22,7 @@ function Posts({ posts }) {
       </div>
       <div className={styles.divider} />
       <div className={styles.grid}>
-        {posts.slice(1).map((p) => <Post post={p} />)}
+        {posts.slice(1).map((p, i) => <React.Fragment key={'post-' + i}><Post post={p} /></React.Fragment>)}
       </div>
     </Container>
   );

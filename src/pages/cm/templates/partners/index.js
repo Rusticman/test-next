@@ -19,7 +19,6 @@ class Partners extends React.Component {
 
   render() {
     const { title, description, partners } = this.props;
-
     return (
       <React.Fragment>
         <Head>
@@ -42,7 +41,6 @@ function mapStateToProps({ query }) {
   return {
     title: idx(query, q => q.meta.title) || '',
     description: idx(query, q => q.meta.description) || '',
-    headline: idx(query, q => q.meta.headline) || '',
   };
 }
 

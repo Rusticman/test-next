@@ -6,9 +6,8 @@ import idx from 'idx';
 import Page from '../../layout/Page';
 import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
-
+import EditorContent from '../../../../components/EditorContent';
 import Hero from './Hero';
-import Article from './Article';
 import Staff from './Staff';
 
 class About extends React.Component {
@@ -35,7 +34,7 @@ class About extends React.Component {
         </Head>
         <Header />
         <Hero />
-        <Article />
+        <EditorContent />
         <Staff lee={lee} jamie={jamie} />
         <Footer />
       </React.Fragment>

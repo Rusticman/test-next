@@ -1,0 +1,34 @@
+@import '../../../variables';
+
+.content {
+  background-color: #ecf4ef;
+  border-radius: 10px;
+  display: flex;
+  margin-bottom: 30px;
+
+  .breakpoint(mobile, { flex-direction: column; });
+  .detail {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    .breakpoint(mobile, { padding: 20px; });
+  }
+
+  .cta {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .breakpoint(mobile, { padding: 20px; padding-top: 0; });
+  }
+
+  .cta > a {
+    background: @primary-color;
+    padding: 15px 25px;
+    color: #ffffff;
+    border-radius: 30px;
+  }
+}

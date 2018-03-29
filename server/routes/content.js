@@ -36,6 +36,8 @@ module.exports = async (req, res) => {
 
   const [getContentError, contents] = await A2A(promises);
   if (getContentError) {
+    console.error(getContentError);
+    console.dir(getContentError)
     return next.render(req, res, `/${BRAND}/http/error`, getContentError);
   }
 
@@ -54,6 +56,8 @@ module.exports = async (req, res) => {
       );
 
       if (renderError) {
+        console.error(renderError);
+        console.dir(renderError)
         return next.render(req, res, `/${BRAND}/http/error`, renderError);
       }
 

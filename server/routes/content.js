@@ -30,14 +30,16 @@ module.exports = async (req, res) => {
 
   // get slug(s) content records
   const promises = [];
-  promises.push(Content.findOne({ slug: slug || 'homepage', ...filter }));
-  if (childSlug) promises.push(Content.findOne({ slug: childSlug, ...filter }));
-  if (babySlug) promises.push(Content.findOne({ slug: babySlug, ...filter }));
+  promises.push(() => Content.findOne({ slug: slug || 'homepage', ...filter }));
+  if (childSlug)
+    promises.push(() => Content.findOne({ slug: childSlug, ...filter }));
+  if (babySlug)
+    promises.push(() => Content.findOne({ slug: babySlug, ...filter }));
 
   const [getContentError, contents] = await A2A(promises);
   if (getContentError) {
     console.error(getContentError);
-    console.dir(getContentError)
+    console.dir(getContentError);
     return next.render(req, res, `/${BRAND}/http/error`, getContentError);
   }
 
@@ -57,7 +59,7 @@ module.exports = async (req, res) => {
 
       if (renderError) {
         console.error(renderError);
-        console.dir(renderError)
+        console.dir(renderError);
         return next.render(req, res, `/${BRAND}/http/error`, renderError);
       }
 

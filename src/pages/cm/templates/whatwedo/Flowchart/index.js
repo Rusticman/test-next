@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Container from '../../../layout/Container';
 
 import Step from './Step';
@@ -12,29 +11,22 @@ function Flowchart() {
         <h2>Our Process</h2>
         <div className={styles.flowchart}>
           <Step
-            image={'https://cdn.checkd.media/illustrations/about.svg'}
-            title={'Your Brand'}
-            description={'Your brand content here'}
+            step={'step_1'}
           />
           <Step
-            image={'https://cdn.checkd.media/illustrations/about.svg'}
-            title={'Checkd Media'}
-            description={'Your brand content here'}
+            step={'step_2'}
           />
           <Step
-            image={'https://cdn.checkd.media/illustrations/about.svg'}
-            title={'Our Platforms'}
-            description={'Your brand content here'}
+            step={'step_3'}
           />
           <Step
-            image={'https://cdn.checkd.media/illustrations/about.svg'}
-            title={'Virality'}
-            description={'Your brand content here'}
+            step={'step_4'}
           />
         </div>
       </Container>
     </div>
   );
 }
+
 
 export default Flowchart;

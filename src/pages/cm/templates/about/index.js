@@ -6,28 +6,40 @@ import idx from 'idx';
 import Page from '../../layout/Page';
 import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
-
+import EditorContent from '../../../../components/EditorContent';
 import Hero from './Hero';
-import Content from './Content';
 import Staff from './Staff';
 
-function News({ title, description }) {
-  return (
-    <React.Fragment>
-      <Head>
-        <title>{title}</title>
-        <meta
-          name="description"
-          content={description}
-        />
-      </Head>
-      <Header />
-      <Hero />
-      <Content />
-      <Staff />
-      <Footer />
-    </React.Fragment>
-  );
+class About extends React.Component {
+  static async getInitialProps({ req }) {
+
+    const lee = await Content.find({ where: { slug: 'lee-struggles' } });
+    const jamie = await Content.find({ where: { slug: 'jamie-knowlson' } });
+    return {
+      lee: lee[0],
+      jamie: jamie[0],
+    };
+  }
+
+  render() {
+    const { lee, jamie, description, title } = this.props;
+    return (
+      <React.Fragment>
+        <Head>
+          <title>{title}</title>
+          <meta
+            name="description"
+            content={description}
+          />
+        </Head>
+        <Header />
+        <Hero />
+        <EditorContent />
+        <Staff lee={lee} jamie={jamie} />
+        <Footer />
+      </React.Fragment>
+    );
+  }
 }
 
 function mapStateToProps({ query }) {
@@ -38,5 +50,5 @@ function mapStateToProps({ query }) {
 }
 
 export default Page(
-  connect(mapStateToProps)(News)
+  connect(mapStateToProps)(About)
 );

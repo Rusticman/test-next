@@ -1,5 +1,6 @@
 import React from 'react';
-
+import idx from 'idx';
+import { connect } from 'react-redux';
 import styles from './styles.less';
 
 function Stat({ value, description, color = '#000' }) {
@@ -11,4 +12,11 @@ function Stat({ value, description, color = '#000' }) {
   );
 }
 
-export default Stat;
+function mapStateToProps({ query }, { block }) {
+  return {
+    value: idx(query, q => q.meta[block].value) || '',
+    description: idx(query, q => q.meta[block].description) || '',
+  };
+}
+
+export default connect(mapStateToProps)(Stat);

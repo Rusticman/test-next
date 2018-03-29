@@ -1,16 +1,33 @@
 import React from 'react';
-
+import Head from 'next/head';
+import { connect } from 'react-redux';
+import idx from 'idx';
 import Container from '../../../layout/Container';
 
 import styles from './styles.less';
 
-function Hero() {
+function Hero({ title, headline, secondary, description }) {
+
   return (
     <Container className={styles.hero}>
-      <h1>CheckdMedia News</h1>
-      <h2>Some title about our news goes here</h2>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+      </Head>
+      <h1>{title}</h1>
+      <h2>{headline}</h2>
+      <h3>{secondary}</h3>
     </Container>
   );
 }
 
-export default Hero;
+function mapStateToProps({ query }) {
+  return {
+    title: idx(query, q => q.meta.title) || '',
+    headline: idx(query, q => q.meta.headline) || '',
+    secondary: idx(query, q => q.meta.secondary) || '',
+    description: idx(query, q => q.meta.description) || '',
+  };
+}
+
+export default connect(mapStateToProps)(Hero);

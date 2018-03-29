@@ -1,0 +1,20 @@
+@import "../../pages/cm/variables";
+
+.block {
+  min-height: 300px;
+  min-width: 400px;
+  padding: 100px 0;
+  background-color: rgba(0, 0, 0, 0.03);
+
+  .content {
+    .breakpoint(mobile, {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      img {
+      height: 300px;
+      margin-top: 50px;
+    }
+    });
+  }
+}

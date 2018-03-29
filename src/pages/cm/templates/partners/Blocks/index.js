@@ -6,7 +6,6 @@ import Partner from './Partner';
 import styles from './styles.less';
 
 function Blocks({ partners }) {
-  partners = new Array(20).fill('herpa derpa');
 
   return (
     <Container>

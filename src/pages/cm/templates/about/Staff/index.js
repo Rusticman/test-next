@@ -6,25 +6,25 @@ import Card from '../../../layout/Card';
 import Person from './Person';
 import styles from './styles.less';
 
-function Staff() {
+function Staff({ lee, jamie }) {
   return (
     <div className={styles.container}>
       <Container>
         <div className={styles.staff}>
           <Card href={'/about/jamie-knowlson'}>
             <Person
-              image={'http://cdn.checkd.media/images/pjtqp4e-sm.jpg'}
-              name={'Jamie Knowlson'}
-              title={'SEO'}
-              description={'Blah blah blah'}
+              image={jamie.meta.image}
+              name={jamie.meta.name}
+              title={jamie.meta.jobRole}
+              description={jamie.meta.description}
             />
           </Card>
           <Card href={'/about/lee-struggles'}>
             <Person
-              image={'http://cdn.checkd.media/images/w9yqp79-sm.jpg'}
-              name={'Lee Struggles'}
-              title={'Marketing'}
-              description={'Blah blah blah'}
+              image={lee.meta.image}
+              name={lee.meta.name}
+              title={lee.meta.jobRole}
+              description={lee.meta.description}
             />
           </Card>
         </div>

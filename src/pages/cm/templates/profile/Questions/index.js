@@ -5,8 +5,9 @@ import styles from './styles.less';
 
 function Questions() {
   return (
-    <Container>
+    <React.Fragment>
       <div className={styles.backgroundSlant} />
+    <Container>
       <h2 className={styles.header}>Questions</h2>
       <div className={styles.questions}>
      <Question number={0}/>
@@ -14,6 +15,7 @@ function Questions() {
      <Question number={2}/>
       </div>
     </Container>
+    </React.Fragment>
   );
 }
 

@@ -1,0 +1,33 @@
+.skills {
+  margin-top: 70px;
+}
+
+.skills > h3 {
+  text-align: center;
+}
+
+.skills > div {
+  background-color: #ffffff;
+  padding: 30px;
+  box-shadow: 0 0 30px 0 rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 80px 0;
+}
+
+.backgroundSlant {
+  position: relative;
+}
+
+.backgroundSlant:before {
+  content: ' ';
+  position: absolute;
+  z-index: -1;
+  height: 500px;
+  background: rgba(0, 0, 0, 0.03);
+  top: -26px;
+  right: 0;
+  left: 0;
+  transform: skewY(-6deg);
+  transform-origin: 0;
+}

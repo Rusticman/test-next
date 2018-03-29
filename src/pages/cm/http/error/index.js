@@ -1,21 +1,14 @@
 import React from 'react';
-import idx from 'idx';
 import Page from '../../layout/Page';
 
 function Error({ error }) {
-  const headline = idx(error, error => error.meta.block_hero.headline);
-  const secondary = idx(error, error => error.meta.block_hero.secondary);
+  console.log(error.message, JSON.stringify(error.stack));
   return (
     <div>
-      <h1>{headline}</h1>
-      <h2>{secondary}</h2>
+      <h1>An error has occurred</h1>
+      <p>{JSON.stringify(error.stack)}</p>
     </div>
   );
 }
-
-Error.getInitialProps = async () => {
-  const error = await Content.findOne({ slug: 'error' });
-  return { error };
-};
 
 export default Page(Error);

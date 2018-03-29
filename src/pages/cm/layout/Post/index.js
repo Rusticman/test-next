@@ -26,7 +26,7 @@ function Post({ featured, post }) {
           <h2>{post.title}</h2>
           <h3>{post.meta.excerpt}...</h3>
           <br />
-          <span className={styles.readMore}>Read More</span>
+          <a className={styles.readMore}>Read More</a>
         </div>
       </article>
     </Card>

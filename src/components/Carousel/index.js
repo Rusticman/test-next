@@ -4,13 +4,13 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import './styles.less';
 
-function Carousel({ children, ref, options }) {
+function Carousel({ children, ref, options, events }) {
   return (
     <React.Fragment>
       <Head>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
       </Head>
-      <OwlCarousel options={options} ref={ref}>
+      <OwlCarousel events={events} options={options} ref={ref}>
         {children}
       </OwlCarousel>
     </React.Fragment>

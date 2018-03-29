@@ -14,7 +14,7 @@ class JoinUs extends React.Component {
 
   static async getInitialProps() {
     const jobs = await Content.find({ parent: 791 });
-    console.log('JOBS', jobs);
+
     return { jobs };
   }
 

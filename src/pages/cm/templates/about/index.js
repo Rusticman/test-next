@@ -22,14 +22,14 @@ class About extends React.Component {
   }
 
   render() {
-    const { lee, jamie } = this.props;
+    const { lee, jamie, description, title } = this.props;
     return (
       <React.Fragment>
         <Head>
-          <title>{this.props.title}</title>
+          <title>{title}</title>
           <meta
             name="description"
-            content={this.props.description}
+            content={description}
           />
         </Head>
         <Header />

@@ -9,24 +9,21 @@ import Stat from './Stat';
 
 import styles from './styles.less';
 
-function Stats({ statistic_1_value, statistic_1_description, statistic_2_value, statistic_2_description, statistic_3_value, statistic_3_description, subheader }) {
+function Stats({ subheader }) {
   return (
     <React.Fragment>
       <Heading>{subheader}</Heading>
       <Container className={styles.stats}>
         <Stat
-          value={statistic_1_value}
-          description={statistic_1_description}
+          block={'block_statistic_1'}
           color={'#779F2D'}
         />
         <Stat
-          value={statistic_2_value}
-          description={statistic_2_description}
+          block={'block_statistic_2'}
           color={'#F46B15'}
         />
         <Stat
-          value={statistic_3_value}
-          description={statistic_3_description}
+          block={'block_statistic_3'}
           color={'#9013fe'}
         />
       </Container>
@@ -37,12 +34,6 @@ function Stats({ statistic_1_value, statistic_1_description, statistic_2_value, 
 
 function mapStateToProps({ query }) {
   return {
-    statistic_1_value: idx(query, q => q.meta.block_statistic_1.value) || '',
-    statistic_1_description: idx(query, q => q.meta.block_statistic_1.description) || '',
-    statistic_2_value: idx(query, q => q.meta.block_statistic_2.value) || '',
-    statistic_2_description: idx(query, q => q.meta.block_statistic_2.description) || '',
-    statistic_3_value: idx(query, q => q.meta.block_statistic_3.value) || '',
-    statistic_3_description: idx(query, q => q.meta.block_statistic_3.description) || '',
     subheader: idx(query, q => q.meta.firstSubheader) || '',
   };
 }

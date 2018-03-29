@@ -67,7 +67,7 @@ global.BRAND = brand;
  * @returns {*} Promise<Array>
  * @constructor
  */
-module.exports = function A2A(oOrP) {
+function A2A(oOrP) {
   if (!oOrP) return Promise.resolve([null, oOrP]);
 
   // single promise

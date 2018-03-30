@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import { connect } from 'react-redux';
 import idx from 'idx';
-import Hero from './Hero';
-import Skills from './Skills';
-import MainDuties from './MainDuties';
+
 import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
 import Page from '../../layout/Page';
 
-function JobPosition({ title, description }) {
+import Hero from './Hero';
+
+function Partner({ title, description }) {
   return (
     <React.Fragment>
       <Head>
@@ -21,12 +21,10 @@ function JobPosition({ title, description }) {
       </Head>
       <Header />
       <Hero />
-      <Skills />
-      <MainDuties />
       <Footer />
     </React.Fragment>
   );
-};
+}
 
 function mapStateToProps({ query }) {
   return {
@@ -35,4 +33,5 @@ function mapStateToProps({ query }) {
   };
 }
 
-export default Page(connect(mapStateToProps)(JobPosition));
+export default Page(connect(mapStateToProps)(Partner));
+

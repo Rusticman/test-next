@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Page from '../layout/Page';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
+import styles from './styles.less';
 
 function NotFound() {
   return (
@@ -12,7 +13,10 @@ function NotFound() {
         <title>Page Not Found</title>
       </Head>
       <Header />
-      <div>404 - Page Not Found</div>
+      <div className={styles.container}>
+        <div>404</div>
+        <div>Page not found</div>
+      </div>
       <Footer />
     </React.Fragment>
   );

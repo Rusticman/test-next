@@ -10,7 +10,9 @@ function Partner({ partner }) {
       href={`/partners/${partner.slug}`}
     >
       <div className={styles.partner}>
+        <div className={styles.imageWrap}>
         <img src={mediaUrl(featured_image, 'lg')} alt={`${name} - Checkd Media Partner`}/>
+        </div>
         <h2>{name}</h2>
         <p>
           {`${excerpt.substring(0, 50)}...`}

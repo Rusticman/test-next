@@ -2,9 +2,9 @@
 
 .related {
   padding: 20px 0 100px 0;
-  background-color: rgba(0, 0, 0, 0.04);
-
+  background-color: #f6f6f6;
   h4 {
+    border-radius: 10px;
     font-size: 3rem;
     text-align: center;
   }
@@ -13,9 +13,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 30px;
-
-    .breakpoint(tablet, {
-      grid-template-columns: 1fr;
-    });
+    .breakpoint(tablet, { grid-template-columns: 1fr; });
   }
+
 }

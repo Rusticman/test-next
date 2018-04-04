@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
   }
 
   const cacheKey = `cache:/${BRAND}/${slug ||
-    'homepage'}/${childSlug}/${babySlug}${BUILD_ID}`;
+  'homepage'}/${childSlug}/${babySlug}${BUILD_ID}`;
 
   // check redis cache first
   const [getCacheError, cachedHtml] = await A2A(Cache.get(cacheKey));
@@ -30,18 +30,22 @@ module.exports = async (req, res) => {
 
   // get slug(s) content records
   const promises = [];
-  promises.push(Content.findOne({ slug: slug || 'homepage', ...filter }));
-  if (childSlug) promises.push(Content.findOne({ slug: childSlug, ...filter }));
-  if (babySlug) promises.push(Content.findOne({ slug: babySlug, ...filter }));
+  promises.push(() => Content.findOne({ slug: slug || 'homepage', ...filter }));
+  if (childSlug)
+    promises.push(() => Content.findOne({ slug: childSlug, ...filter }));
+  if (babySlug)
+    promises.push(() => Content.findOne({ slug: babySlug, ...filter }));
 
   const [getContentError, contents] = await A2A(promises);
   if (getContentError) {
+    console.error(getContentError);
+    console.dir(getContentError);
     return next.render(req, res, `/${BRAND}/http/error`, getContentError);
   }
 
   if (contents && contents[0]) {
     const { id, slug: contentSlug, meta } =
-      contents[2] || contents[1] || contents[0];
+    contents[2] || contents[1] || contents[0];
 
     if (meta.template) {
       const [renderError, html] = await A2A(
@@ -54,6 +58,8 @@ module.exports = async (req, res) => {
       );
 
       if (renderError) {
+        console.error(renderError);
+        console.dir(renderError);
         return next.render(req, res, `/${BRAND}/http/500`, renderError);
       }
 

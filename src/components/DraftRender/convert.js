@@ -12,8 +12,8 @@ const conversionHelpers = {
     return undefined;
   },
   blockToHTML(block, originalText) {
-    let type = block.type.toLowerCase().split(':')[0];
-    if(type === 'header-two') type = 'headerTwo';
+    let type = camelCase(block.type.toLowerCase().split(':')[0]);
+    //if(type === 'orderedListItem') originalText = block.text;
     if (BLOCKS[type]) return BLOCKS[type](block, originalText);
     return '';
   },
@@ -28,4 +28,10 @@ export default function rawContentStateToHtml(rawContentState) {
   const contentState = convertFromRaw(rawContentState);
   const renderedHtml = convertToHTML(conversionHelpers)(contentState);
   return { __html: renderedHtml };
+}
+
+function camelCase(str) {
+  return str.trim().replace(/(\-|_|\s)+(.)?/g, function (mathc, sep, c) {
+    return (c ? c.toUpperCase() : '');
+  });
 }

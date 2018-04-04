@@ -35,7 +35,6 @@ class JoinUs extends React.Component {
         <Hero jobs={jobs} />
         <Jobs jobs={jobs} />
         <Contact />
-        <WhyCheckd />
         <Footer />
       </React.Fragment>
     );

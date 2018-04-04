@@ -54,7 +54,7 @@ module.exports = async (req, res) => {
       );
 
       if (renderError) {
-        return next.render(req, res, `/${BRAND}/http/error`, renderError);
+        return next.render(req, res, `/${BRAND}/http/500`, renderError);
       }
 
       // TODO cache set to 1 hour for now - should probably be 4 hours and auto delete items on update in CMS

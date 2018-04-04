@@ -42,7 +42,9 @@ class Post extends React.Component {
             content={description}
           />
         </Head>
+        <div className={styles.header}>
         <Header />
+        </div>
         <FeaturedImage />
         <div className={styles.content}>
           <Meta />

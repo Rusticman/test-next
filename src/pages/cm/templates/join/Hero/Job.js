@@ -4,7 +4,7 @@ import styles from './styles.less';
 
 function Job({ job }) {
   return (
-    <a href={`/news/${job.slug}`}>
+    <a href={`/join-us/${job.slug}`}>
       <div
         className={styles.job}
       >

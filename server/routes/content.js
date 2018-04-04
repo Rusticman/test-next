@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
   }
 
   const cacheKey = `cache:/${BRAND}/${slug ||
-    'homepage'}/${childSlug}/${babySlug}${BUILD_ID}`;
+  'homepage'}/${childSlug}/${babySlug}${BUILD_ID}`;
 
   // check redis cache first
   const [getCacheError, cachedHtml] = await A2A(Cache.get(cacheKey));
@@ -45,7 +45,7 @@ module.exports = async (req, res) => {
 
   if (contents && contents[0]) {
     const { id, slug: contentSlug, meta } =
-      contents[2] || contents[1] || contents[0];
+    contents[2] || contents[1] || contents[0];
 
     if (meta.template) {
       const [renderError, html] = await A2A(
@@ -60,7 +60,7 @@ module.exports = async (req, res) => {
       if (renderError) {
         console.error(renderError);
         console.dir(renderError);
-        return next.render(req, res, `/${BRAND}/http/error`, renderError);
+        return next.render(req, res, `/${BRAND}/http/500`, renderError);
       }
 
       // TODO cache set to 1 hour for now - should probably be 4 hours and auto delete items on update in CMS

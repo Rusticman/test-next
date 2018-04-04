@@ -4,7 +4,6 @@ import giphy from './atomic:giphy';
 import playbuzz from './atomic:playbuzz';
 
 export default function atomic(entity, originalText) {
-  console.log('entity', entity);
   switch (entity.type) {
     case 'atomic:media':
       return media(entity, originalText);

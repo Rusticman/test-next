@@ -12,7 +12,7 @@ import styles from './styles.less';
 class Header extends React.Component {
   render() {
     return (
-      <header className={styles.header}>
+      <header className={cx(styles.header, 'post-header')}>
         <Container className={styles.container}>
           <div>
             <Logo />

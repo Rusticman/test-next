@@ -6,20 +6,20 @@ import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import styles from './styles.less';
 
-function NotFound() {
+function ServerError() {
   return (
     <React.Fragment>
       <Head>
-        <title>Page Not Found</title>
+        <title>Server Error</title>
       </Head>
       <Header />
       <div className={styles.container}>
-        <div>404</div>
-        <div>Page not found</div>
+        <div>500</div>
+        <div>Internal Server Error</div>
       </div>
       <Footer />
     </React.Fragment>
   );
 }
 
-export default Page(NotFound);
+export default Page(ServerError);

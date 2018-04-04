@@ -10,7 +10,7 @@ function Skills({ skills }) {
       <div className={styles.backgroundSlant} />
       <Container>
         <div className={styles.skills}>
-          <h3>Skills</h3>
+          <h2>Skills</h2>
           <div>{skills}</div>
         </div>
       </Container>

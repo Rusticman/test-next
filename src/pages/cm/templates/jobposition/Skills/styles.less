@@ -1,18 +1,17 @@
-.skills {
-  margin-top: 70px;
-}
+@import "../../../variables";
 
-.skills > h3 {
+.skills > h2 {
   text-align: center;
 }
 
 .skills > div {
   background-color: #ffffff;
   padding: 30px;
-  box-shadow: 0 0 30px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
   margin: 80px 0;
+  .breakpoint(tablet, { margin: 15px 0; });
 }
 
 .backgroundSlant {
@@ -23,11 +22,12 @@
   content: ' ';
   position: absolute;
   z-index: -1;
-  height: 500px;
+  height: 400px;
   background: rgba(0, 0, 0, 0.03);
-  top: -26px;
+  top: 70px;
   right: 0;
   left: 0;
   transform: skewY(-6deg);
   transform-origin: 0;
+  .breakpoint(tablet, {  top: 25px; });
 }

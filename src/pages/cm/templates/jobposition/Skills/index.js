@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import idx from 'idx';
 import Container from '../../../layout/Container';
+import Heading from '../../../layout/Heading';
 import styles from './styles.less';
 
 function Skills({ skills }) {
@@ -10,7 +11,7 @@ function Skills({ skills }) {
       <div className={styles.backgroundSlant} />
       <Container>
         <div className={styles.skills}>
-          <h2>Skills</h2>
+          <Heading>Skills</Heading>
           <div>{skills}</div>
         </div>
       </Container>

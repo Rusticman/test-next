@@ -6,7 +6,7 @@ import Container from '../../../layout/Container';
 
 import styles from './styles.less';
 
-function Hero({ title, headline, secondary, description }) {
+function Hero({ title, description }) {
 
   return (
     <Container className={styles.hero}>
@@ -15,8 +15,6 @@ function Hero({ title, headline, secondary, description }) {
         <meta name="description" content={description} />
       </Head>
       <h1>{title}</h1>
-      <h2>{headline}</h2>
-      <h3>{secondary}</h3>
     </Container>
   );
 }
@@ -24,9 +22,6 @@ function Hero({ title, headline, secondary, description }) {
 function mapStateToProps({ query }) {
   return {
     title: idx(query, q => q.meta.title) || '',
-    headline: idx(query, q => q.meta.headline) || '',
-    secondary: idx(query, q => q.meta.secondary) || '',
-    description: idx(query, q => q.meta.description) || '',
   };
 }
 

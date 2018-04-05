@@ -30,18 +30,14 @@
   .menu();
   display: block;
 
-  .breakpoint(tablet, {
-    display: none;
-  });
+  .breakpoint(tablet, { display: none; });
 }
 
 .mobile {
   .menu();
   display: none;
 
-  .breakpoint(tablet, {
-    display: block;
-  });
+  .breakpoint(tablet, { display: block; });
 }
 
 .hide {
@@ -69,7 +65,9 @@
   width: 300px;
   background-color: @secondary-color;
   border-right: 10px solid @primary-color;
-
+  a {
+    color: white !important;
+  }
   .breakpoint(tablet, { width: 300px; });
   .breakpoint(mobile, { width: 80vw; });
 

@@ -47,7 +47,6 @@ class Post extends React.Component {
         </div>
         <FeaturedImage />
         <div className={styles.content}>
-          <Meta />
           <Contents />
           <Related related={related} />
         </div>

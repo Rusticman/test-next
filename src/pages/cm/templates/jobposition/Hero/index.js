@@ -3,6 +3,7 @@ import { mediaUrl } from '../../../../../helpers';
 import { connect } from 'react-redux';
 import idx from 'idx';
 import Container from '../../../layout/Container';
+import Heading from '../../../layout/Heading';
 import styles from './styles.less';
 
 function Hero({ position, description, image }) {
@@ -13,7 +14,7 @@ function Hero({ position, description, image }) {
           <img className={styles.image} src={mediaUrl(image, 'lg')} alt={position} />
         </div>
         <div>
-          <h1>{position}</h1>
+          <Heading>{position}</Heading>
           <p>{description}</p>
         </div>
       </div>

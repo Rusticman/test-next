@@ -7,7 +7,7 @@ import styles from './styles.less';
 
 function Hero({ name, image, excerpt }) {
   return (
-    <Container>
+    <Container className={styles.content}>
       <div className={styles.hero}>
         <div>
           <img src={mediaUrl(image, 'lg')} />

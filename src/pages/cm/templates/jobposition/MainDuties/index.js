@@ -8,8 +8,8 @@ import styles from './styles.less';
 
 function MainDuties({ draftContext }) {
   return (
-    <Container>
-      <div className={styles.content}>
+    <Container className={styles.content}>
+      <div className={styles.duties}>
         <Heading>Main Duties </Heading>
         <DraftRender draftContext={draftContext} />
       </div>

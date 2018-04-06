@@ -1,18 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import idx from 'idx';
+
+import DraftRender from '../../../../../components/DraftRender';
 import Container from '../../../layout/Container';
 import Heading from '../../../layout/Heading';
 import styles from './styles.less';
 
-function Skills({ skills }) {
+function Skills({ draftContext }) {
   return (
     <React.Fragment>
       <div className={styles.backgroundSlant} />
-      <Container>
+      <Container className={styles.content}>
         <div className={styles.skills}>
-          <Heading>Skills</Heading>
-          <div>{skills}</div>
+          <Heading>Essential Skills </Heading>
+          <DraftRender draftContext={draftContext} />
         </div>
       </Container>
     </React.Fragment>
@@ -21,7 +22,7 @@ function Skills({ skills }) {
 
 function mapStateToProps({ query }) {
   return {
-    skills: idx(query, q => q.meta.skills) || '',
+    draftContext: query.meta.skills,
   };
 }
 

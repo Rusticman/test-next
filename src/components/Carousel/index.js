@@ -4,27 +4,31 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import './styles.less';
 
-function Carousel({ children, ref, options, events }) {
-  return (
-    <React.Fragment>
-      <Head>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-      </Head>
-      <OwlCarousel events={events} options={options} ref={ref}>
-        {children}
-      </OwlCarousel>
-    </React.Fragment>
-  );
+class Carousel extends React.Component {
+  render(){
+    const { children, reference, options, events } = this.props;
+    return (
+      <React.Fragment>
+        <Head>
+          <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        </Head>
+        <OwlCarousel events={events} options={options} ref={reference}>
+          {children}
+        </OwlCarousel>
+      </React.Fragment>
+    );
+  }
 }
 
 Carousel.propTypes = {
   options: PropTypes.object,
-  ref: PropTypes.string,
+  reference: PropTypes.string,
   events: PropTypes.object,
 };
 Carousel.defaultProps = {
   options: {},
-  ref: 'owl-carousel',
+  reference: 'owl-carousel',
   events: {},
 };
 

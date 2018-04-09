@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
   }
 
   const cacheKey = `cache:/${BRAND}/${slug ||
-  'homepage'}/${childSlug}/${babySlug}${BUILD_ID}`;
+  'homepage'}/${childSlug}/${babySlug}${BUILD_ID}?${JSON.stringify(req.query)}`;
 
   // check redis cache first
   const [getCacheError, cachedHtml] = await A2A(Cache.get(cacheKey));

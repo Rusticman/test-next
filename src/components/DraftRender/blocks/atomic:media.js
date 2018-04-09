@@ -21,7 +21,7 @@ export default function(entity, originalText) {
         className={styles.image}
       />
       <div>
-        <figcaption className={styles.figcaption}>{caption}</figcaption>
+        <figcaption className={cx(styles.figcaption, styles[data.alignment])}>{caption}</figcaption>
       </div>
     </figure>
   );

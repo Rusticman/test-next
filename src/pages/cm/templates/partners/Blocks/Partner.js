@@ -1,5 +1,5 @@
 import React from 'react';
-import { mediaUrl} from '../../../../../helpers';
+import { mediaUrl } from '../../../../../helpers';
 import Card from '../../../layout/Card';
 import styles from './styles.less';
 
@@ -15,7 +15,7 @@ function Partner({ partner }) {
         </div>
         <h2>{name}</h2>
         <p>
-          {`${excerpt.substring(0, 50)}...`}
+          {`${excerpt && excerpt.substring(0, 50)}...`}
         </p>
       </div>
     </Card>

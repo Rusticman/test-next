@@ -15,20 +15,18 @@ class News extends React.Component {
 
   static limit = 7;
 
-  static async getInitialProps({ req }) {
+  static async getInitialProps({ req, query }) {
     const page = req.query.page || 1;
-console.log('PAGE',req.query);
-// console.log('REQ',req);
+    const limit = query.meta.articleLimit;
     const where = {
       type: 'post',
       status: 'publish',
     };
-
     const posts = await Content.find({
       where,
       sort: 'created_at DESC',
-      limit: News.limit,
-      skip: (page - 1) * News.limit,
+      limit,
+      skip: (page - 1) * limit,
     });
     const total = await Content.count(where);
 
@@ -36,11 +34,12 @@ console.log('PAGE',req.query);
       page,
       posts,
       total,
+      limit,
     };
   }
 
   render() {
-    const { title, description, posts, page, total } = this.props;
+    const { title, description, posts, page, total, limit } = this.props;
 
     return (
       <React.Fragment>
@@ -57,7 +56,7 @@ console.log('PAGE',req.query);
         <Pagination
           page={page}
           total={total}
-          limit={News.limit}
+          limit={limit}
         />
         <Footer />
       </React.Fragment>

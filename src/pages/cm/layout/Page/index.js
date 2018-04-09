@@ -21,7 +21,7 @@ const Page = ComposedComponent => {
     return (
       <Document>
         <Head>
-          <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,600" rel="stylesheet" />
           <link rel="shortcut icon" type="image/png" href={FAV_ICON} />
           <link rel="shortcut icon" href={FAV_ICON} />
           <link rel="apple-touch-icon" href={FAV_ICON} />

@@ -13,7 +13,7 @@ const conversionHelpers = {
   },
   blockToHTML(block, originalText) {
     let type = camelCase(block.type.toLowerCase().split(':')[0]);
-    //if(type === 'orderedListItem') originalText = block.text;
+
     if (BLOCKS[type]) return BLOCKS[type](block, originalText);
     return '';
   },

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Container from '../Container';
 import Button from '../Button';
 import styles from './styles.less';
@@ -21,5 +20,6 @@ function Pagination({ page, total, limit }) {
     </Container>
   );
 }
+
 
 export default Pagination;

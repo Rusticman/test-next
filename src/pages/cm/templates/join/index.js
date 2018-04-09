@@ -5,7 +5,6 @@ import idx from 'idx';
 import Hero from './Hero';
 import Contact from './Contact';
 import Jobs from './Jobs';
-import WhyCheckd from './WhyCheckd';
 import Page from '../../layout/Page';
 import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';

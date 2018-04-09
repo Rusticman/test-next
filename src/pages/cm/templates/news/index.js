@@ -13,7 +13,7 @@ import Posts from './Posts';
 
 class News extends React.Component {
 
-  static limit = 3;
+  static limit = 7;
 
   static async getInitialProps({ req }) {
     const page = req.param('page') || 1;

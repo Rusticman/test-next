@@ -6,7 +6,7 @@ import styles from './styles.less';
 
 function Future({ future }) {
   return (
-    <Container>
+    <Container className={styles.content}>
       <div className={styles.future}>
         <h3>Future @ Checkd Media</h3>
         <div>{future}</div>

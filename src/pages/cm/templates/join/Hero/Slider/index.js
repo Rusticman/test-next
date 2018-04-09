@@ -20,8 +20,7 @@ const options = {
 
 function Slider({ jobs }) {
   return (
-
-    <Carousel ref="job-slider" options={options}>
+    <Carousel reference={"job-slider"} options={options}>
       {jobs.map((job, i) => <Job key={'job-'+ i} job={job} />)}
     </Carousel>
   );

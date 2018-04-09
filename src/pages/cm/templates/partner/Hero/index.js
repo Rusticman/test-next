@@ -14,7 +14,7 @@ function Hero({ name, image, excerpt }) {
         </div>
         <div>
           <h1>{name}</h1>
-          <h3>{excerpt}</h3>
+          <p>{excerpt}</p>
         </div>
       </div>
     </Container>

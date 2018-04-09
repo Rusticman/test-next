@@ -13,28 +13,33 @@ import Posts from './Posts';
 
 class News extends React.Component {
 
+  static limit = 3;
+
   static async getInitialProps({ req }) {
     const page = req.param('page') || 1;
-    const limit = 10;
+
+    const where = {
+      type: 'post',
+      status: 'publish',
+    };
 
     const posts = await Content.find({
-      where: {
-        type: 'post',
-        status: 'publish',
-      },
+      where,
       sort: 'created_at DESC',
-      limit,
-      skip: (page - 1) * limit,
+      limit: News.limit,
+      skip: (page - 1) * News.limit,
     });
+    const total = await Content.count(where);
 
     return {
       page,
       posts,
+      total,
     };
   }
 
   render() {
-    const { title, description, posts, page } = this.props;
+    const { title, description, posts, page, total } = this.props;
 
     return (
       <React.Fragment>
@@ -50,6 +55,8 @@ class News extends React.Component {
         <Posts posts={posts} />
         <Pagination
           page={page}
+          total={total}
+          limit={News.limit}
         />
         <Footer />
       </React.Fragment>

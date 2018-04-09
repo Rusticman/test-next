@@ -7,7 +7,7 @@ function Questions() {
   return (
     <React.Fragment>
       <div className={styles.backgroundSlant} />
-    <Container>
+    <Container className={styles.content}>
       <h2 className={styles.header}>Questions</h2>
       <div className={styles.questions}>
      <Question number={0}/>

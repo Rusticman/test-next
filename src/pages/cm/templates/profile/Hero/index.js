@@ -6,7 +6,7 @@ import styles from './styles.less';
 
 function Hero({ image, name, about }) {
   return (
-    <Container>
+    <Container className={styles.content}>
       <div className={styles.hero}>
         <div >
           <img className={styles.image} src={image} alt={name} />

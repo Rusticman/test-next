@@ -8,7 +8,7 @@ import styles from './styles.less';
 
 function Hero({ position, description, image }) {
   return (
-    <Container>
+    <Container className={styles.content}>
       <div className={styles.hero}>
         <div >
           <img className={styles.image} src={mediaUrl(image, 'lg')} alt={position} />

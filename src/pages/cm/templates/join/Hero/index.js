@@ -11,7 +11,7 @@ function Hero({ headline, secondary, jobs }) {
       <div className={styles.hero}>
         <div>
           <h1>{headline}</h1>
-          <h4 className={styles.secondary}>{secondary}</h4>
+          <h4>{secondary}</h4>
         </div>
         <div>
           <Slider jobs={jobs} />

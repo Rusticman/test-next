@@ -16,8 +16,9 @@ class News extends React.Component {
   static limit = 7;
 
   static async getInitialProps({ req }) {
-    const page = req.param('page') || 1;
-
+    const page = req.query.page || 1;
+console.log('PAGE',req.query);
+// console.log('REQ',req);
     const where = {
       type: 'post',
       status: 'publish',

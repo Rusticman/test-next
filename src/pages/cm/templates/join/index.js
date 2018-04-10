@@ -12,7 +12,7 @@ import Footer from '../../layout/Footer';
 class JoinUs extends React.Component {
 
   static async getInitialProps() {
-    const jobs = await Content.find({ parent: 791 });
+    const jobs = await Content.find({ where:{ parent: 791, status: 'publish' }});
 
     return { jobs };
   }

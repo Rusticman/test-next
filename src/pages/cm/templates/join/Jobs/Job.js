@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { mediaUrl } from '../../../../../helpers';
 import Card from '../../../layout/Card';
 
 import styles from './styles.less';
@@ -12,7 +12,7 @@ function Job({ job }) {
         className={styles.job}
       >
         <div className={styles.content}>
-          <div className={styles.pill}>News</div>
+          <div style={{backgroundImage: `url(${mediaUrl(job.meta.featured_image, 'md')})`}} className={styles.img}/>
           <h2>{job.title}</h2>
           <h3>{`${job.meta.job_description.substring(0, 100)}...`}</h3>
           <br />

@@ -27,8 +27,6 @@ class JoinUs extends React.Component {
             name="description"
             content={description}
           />
-          <script
-            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
         </Head>
         <Header />
         <Hero jobs={jobs} />

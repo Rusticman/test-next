@@ -1,52 +1,76 @@
 @import "../../../variables";
 
-.grid {
-  display: grid;
-  grid-gap: 35px;
-  grid-template-columns: repeat(3, 1fr);
-  margin-bottom: 30px;
-  .breakpoint(tablet, { grid-template-columns: repeat(2, 1fr); });
-  .breakpoint(mobile, { grid-template-columns: 1fr; });
-}
+.container {
 
-.job {
-  display: grid;
-  grid-template-rows: 220px 80px;
-
-  .image {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  .grid {
+    display: grid;
+    grid-gap: 35px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 30px;
+    .breakpoint(tablet, { grid-template-columns: repeat(2, 1fr); });
+    .breakpoint(mobile, { grid-template-columns: 1fr; });
   }
 
-  .content {
-    padding: 20px;
+  .job {
+    display: grid;
+    grid-template-rows: 220px 80px;
 
-    .pill {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100px;
-      height: 25px;
-      border-radius: 20px;
-      background: orange;
+    .image {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .content {
+      padding: 20px;
+
+      .img {
+        width: 100px;
+        height: 100px;
+        float: left;
+        margin-right: 2rem;
+        margin-bottom: 1rem;
+        border-radius: 50%;
+        shape-outside: circle();
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      h3 {
+        color: rgba(0, 0, 0, 0.5);
+      }
+
+    }
+
+    .cta {
+      padding: 20px;
+    }
+
+    .readMore {
+      background: @primary-color;
+      padding: 15px 25px;
       color: #ffffff;
+      border-radius: 30px;
     }
-
-    h3 {
-      color: rgba(0, 0, 0, 0.5);
-    }
-
-  }
-
-  .cta{
-    padding:20px;
-  }
-
-  .readMore {
-    background: @primary-color;
-    padding: 15px 25px;
-    color: #ffffff;
-    border-radius: 30px;
   }
 }
+
+.backgroundSlant {
+  position: relative;
+}
+
+.backgroundSlant:before {
+  content: ' ';
+  position: absolute;
+  z-index: -1;
+  height: 1200px;
+  background: rgba(0, 0, 0, 0.03);
+  top: -10;
+  right: 0;
+  left: 0;
+  transform: skewY(-6deg);
+  transform-origin: 0;
+  .breakpoint(tablet, { top: -30px });
+
+}
+

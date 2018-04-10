@@ -6,18 +6,18 @@
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: 1fr minmax(600px, 800px);
-  grid-template-rows: 70vh;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  grid-gap: 100px;
-
+  height: 50vh;
+  padding-top: @header-height;
+  text-align: center;
   h1, h4 {
     text-align: center;
   }
 
-  .breakpoint(tablet, { grid-template-rows: 1fr 1fr; grid-template-columns: 100%; grid-gap: 0px; justify-content: normal; margin-bottom: 40px; });
+  .breakpoint(tablet, { grid-template-rows: 1fr 1fr; grid-template-columns: 100%; grid-gap: 0px; justify-content: normal; margin-bottom: 40px; height:20vh;});
 
   .secondary {
     text-align: center;

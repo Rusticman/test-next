@@ -7,6 +7,8 @@ import { mediaUrl } from '../../../../helpers';
 import Document from '../../../../components/Document';
 import tagManager from '../../../../scripts/tagManager';
 import store from '../../../../redux';
+import twitterMeta from '../../../../scripts/twitter';
+import openGraphMeta from '../../../../scripts/openGraph';
 
 import styles from './styles.less';
 
@@ -18,7 +20,13 @@ const Page = ComposedComponent => {
       query: props.url.query,
     };
 
+    const twitterType = image ? "summary_large_image" : "summary";
+    const openType = props.url.query.type === 'page' ? 'website' : 'article';
     const image = idx(props, p => p.url.query.meta.featured_image);
+    const title = idx(props, p => p.url.query.meta.title) || '';
+    const description = idx(props, p => p.url.query.meta.description) || '';
+    const createdBy = idx(props, p => p.url.query.created_by) ? props.url.query.created_by : 'Checkd Media';
+    console.log('QUERY', props.url.query);
     return (
       <Document>
         <Head>
@@ -32,12 +40,9 @@ const Page = ComposedComponent => {
           <script
             dangerouslySetInnerHTML={{ __html: tagManager('GTM-TQHW98B') }}
           />
-          <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
-          <meta name="twitter:site" content="@CheckdMedia" />
-          <meta name="twitter:title" content={idx(props, p => p.url.query.meta.title) || ''}/>
-          <meta name="twitter:description" content={idx(props, p => p.url.query.meta.description) || ''}/>
-          {image && <meta name="twitter:image" content={mediaUrl(image)} />}
-        </Head>
+          {twitterMeta(twitterType, "@CheckdMedia", title, description, image && mediaUrl(image))}
+          {openGraphMeta(openType, 'wwww.checkd.media.com', title, image && mediaUrl(image), createdBy)}
+        </Head>l
         <Provider store={store(initialState)}>
           <div className={styles.page}>
             <ComposedComponent

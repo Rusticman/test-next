@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import idx from 'idx';
+import DraftRender from '../../../../../components/DraftRender';
+
 import Container from '../../../layout/Container';
 import { mediaUrl } from '../../../../../helpers';
 import styles from './styles.less';
 
-function Hero({ name, image, excerpt }) {
+function Hero({ name, image, draftContext }) {
   return (
     <Container>
       <div className={styles.hero}>
@@ -14,7 +16,7 @@ function Hero({ name, image, excerpt }) {
         </div>
         <div>
           <h1>{name}</h1>
-          <p>{excerpt}</p>
+          <DraftRender draftContext={draftContext} />
         </div>
       </div>
     </Container>
@@ -25,7 +27,7 @@ function mapStateToProps({ query }) {
   return {
     name: idx(query, q => q.meta.name) || '',
     image: idx(query, q => q.meta.featured_image) || '',
-    excerpt: idx(query, q => q.meta.excerpt) || '',
+    draftContext: idx(query, q => q.meta.details) || '',
   };
 }
 

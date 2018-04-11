@@ -7,20 +7,31 @@
   align-items: center;
   justify-content: center;
   grid-gap: 100px;
-    img {
-      max-width: 80%;
-      max-height: 100%;
-    }
+
+  h1 {
+    padding-left: 100px;
+  }
+
+  img {
+    max-width: 80%;
+    max-height: 100%;
+  }
 
   p {
     line-height: 3rem;
   }
 
-    .breakpoint(tablet, { display: flex; flex-direction: column-reverse; margin-top: @header-height; height: 100vh; text-align: center; img {
-      height: 300px;
-    } });
+  .breakpoint(tablet, { display: flex; flex-direction: column-reverse; margin-top: @header-height;  text-align: center;
+  h1 {
+    padding-left: 0;
+    text-align: center;
+    margin-top:30px;
+  }
+  img {
+    margin-bottom: 20px;
+  }
+   });
 }
-
 
 .content {
   font-size: 17px;

@@ -23,7 +23,7 @@ function Hero({ name, image, draftContext }) {
   );
 }
 
-function mapStateToProps({ query }) {console.log('query', query);
+function mapStateToProps({ query }) {
   return {
     name: idx(query, q => q.meta.name) || '',
     image: idx(query, q => q.meta.featured_image) || '',

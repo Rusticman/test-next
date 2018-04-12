@@ -64,7 +64,8 @@ module.exports = async (req, res) => {
       }
 
       // TODO cache set to 1 hour for now - should probably be 4 hours and auto delete items on update in CMS
-      // if (!getCacheError) await A2A(Cache.set(cacheKey, html, 3600));
+      //if (!getCacheError) await A2A(Cache.set(cacheKey, html, 3600));
+
 
       return res.send(html);
     }

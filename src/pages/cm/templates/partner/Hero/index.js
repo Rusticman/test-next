@@ -11,10 +11,10 @@ function Hero({ name, image, draftContext }) {
   return (
     <Container>
       <div className={styles.hero}>
-        <div>
+        <div className={styles.image}>
           <img src={mediaUrl(image, 'lg')} />
         </div>
-        <div>
+        <div className={styles.info}>
           <h1>{name}</h1>
           <DraftRender draftContext={draftContext} />
         </div>

@@ -11,11 +11,15 @@ function Jobs({ jobs }) {
   }
 
   return (
-    <Container>
-      <div className={styles.grid}>
-        {jobs.slice(1).map((p, i) => <React.Fragment key={'jobs-' + i}><Job job={p} /></React.Fragment>)}
-      </div>
-    </Container>
+    <React.Fragment>
+      <div className={styles.backgroundSlant} />
+      <Container className={styles.container}>
+        <div className={styles.grid}>
+          {jobs.map((p, i) => <React.Fragment key={'jobs-' + i}><Job
+            job={p} /></React.Fragment>)}
+        </div>
+      </Container>
+    </React.Fragment>
   );
 }
 

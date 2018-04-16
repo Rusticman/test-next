@@ -1,33 +1,30 @@
 @import "../../../variables";
 
 .hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: minmax(100vh, auto);
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  grid-gap: 100px;
 
   h1 {
     padding-left: 100px;
   }
 
   .image {
+    padding-top:160px;
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     justify-content: center;
+    align-items:center;
   }
 
   .info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    margin: 40px 0 80px 0;
   }
 
   img {
-    max-width: 80%;
+    width: 35%;
     max-height: 100%;
   }
 
@@ -35,20 +32,19 @@
     line-height: 3rem;
   }
 
-  .breakpoint(tablet, { display: flex; flex-direction: column-reverse; margin-top: @header-height;  text-align: center;
-  h1 {
+  .breakpoint(tablet, { display: flex; flex-direction: column-reverse; margin-top: @header-height; text-align: center; h1 {
     padding-left: 0;
     text-align: center;
-    margin-top:30px;
+  } img {
+      margin: 30px 0 80px 0; width: 90%;
+
+    } .image {
+        align-items: center;  padding-top:20px;
+      }
+  .info{
+    margin: 40px 0 30px 0;
   }
-  img {
-    margin: 30px 0;
-  }
-  .image{
-    align-items: center;
-    width:50%;
-  }
-   });
+  });
 }
 
 .content {

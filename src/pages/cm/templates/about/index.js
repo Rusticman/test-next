@@ -11,18 +11,14 @@ import Hero from './Hero';
 import Staff from './Staff';
 
 class About extends React.Component {
-  static async getInitialProps({ req }) {
-
-    const lee = await Content.find({ where: { slug: 'lee-struggles' } });
-    const jamie = await Content.find({ where: { slug: 'jamie-knowlson' } });
+  static async getInitialProps() {
     return {
-      lee: lee[0],
-      jamie: jamie[0],
+      profiles: await Content.find({ parent: 792 }),
     };
   }
 
   render() {
-    const { lee, jamie, description, title } = this.props;
+    const { profiles, description, title } = this.props;
     return (
       <React.Fragment>
         <Head>
@@ -35,7 +31,7 @@ class About extends React.Component {
         <Header />
         <Hero />
         <EditorContent />
-        <Staff lee={lee} jamie={jamie} />
+        <Staff profiles={profiles} />
         <Footer />
       </React.Fragment>
     );

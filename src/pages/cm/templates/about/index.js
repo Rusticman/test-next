@@ -13,7 +13,7 @@ import Staff from './Staff';
 class About extends React.Component {
   static async getInitialProps() {
 
-   const about = await Content.find({ slug: 'about' });
+    const about = await Content.find({ slug: 'about' });
 
     return {
       profiles: await Content.find({ parent: about[0].id }),
@@ -22,7 +22,6 @@ class About extends React.Component {
 
   render() {
     const { profiles, description, title } = this.props;
-    console.log('profiles',profiles);
     return (
       <React.Fragment>
         <Head>

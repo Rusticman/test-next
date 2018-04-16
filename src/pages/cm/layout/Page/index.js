@@ -42,7 +42,7 @@ const Page = ComposedComponent => {
           />
           {twitterMeta(twitterType, "@CheckdMedia", title, description, image && mediaUrl(image))}
           {openGraphMeta(openType, 'wwww.checkd.media.com', title, image && mediaUrl(image), createdBy)}
-        </Head>l
+        </Head>
         <Provider store={store(initialState)}>
           <div className={styles.page}>
             <ComposedComponent

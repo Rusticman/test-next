@@ -1,17 +1,19 @@
 import React from 'react';
-
+import Card from '../../../layout/Card';
 import styles from './styles.less';
 
-function Person({ image, name, title, description }) {
+function Person({ image, name, title, description, slug }) {
   return (
-    <div className={styles.person}>
-      <div>
-        <img src={image} alt={`${name} - ${title}`} />
+    <Card href={`/about/${slug}`}>
+      <div className={styles.person}>
+        <div>
+          <img src={image} alt={`${name} - ${title}`} />
+        </div>
+        <h2>{name}</h2>
+        <h3>{title}</h3>
+        <p>{description}</p>
       </div>
-      <h2>{name}</h2>
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </div>
+    </Card>
   );
 }
 

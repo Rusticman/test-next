@@ -1,3 +1,5 @@
+import React from 'react';
+
 export function mediaUrl(slug, size = 'lg') {
   return `https://cdn.checkd.media/images/${slug}-${size}.jpg`;
 }
@@ -7,7 +9,7 @@ export function mediaUrl(slug, size = 'lg') {
  * @param length
  * @return excerpt
  ***/
-export function createExcerpt(editorState, length){
+export function createExcerpt(editorState, length) {
   const parsed = JSON.parse(editorState);
   let text = '';
 
@@ -22,6 +24,25 @@ export function createExcerpt(editorState, length){
   }
 
   return text;
+}
+
+export function createLinks(page, href, total, limit) {
+  if (page === 1) {
+    return <link rel="next" href={`${href}?page=2`} />;
+  }
+  else if (page > 1 && (page * limit) < total) {
+    return (
+      <React.Fragment>
+        <link rel="prev" href={`${href}/page=${page - 1}`} />
+        <link rel="next" href={`${href}/page=${page + 1}`} />
+      </React.Fragment>
+    );
+  }
+  else {
+    return (
+      <link rel="prev" href={`${href}/page=${page - 1}`} />
+    );
+  }
 }
 
 

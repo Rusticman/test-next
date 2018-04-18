@@ -10,6 +10,7 @@ import Pagination from '../../layout/Pagination';
 
 import Hero from './Hero';
 import Posts from './Posts';
+import { createLinks } from '../../../../helpers';
 
 class News extends React.Component {
 
@@ -49,6 +50,7 @@ class News extends React.Component {
             name="description"
             content={description}
           />
+        {createLinks(page, 'https://checkd.media/news', total, limit)}
         </Head>
         <Header />
         <Hero />

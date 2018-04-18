@@ -5,6 +5,7 @@ import idx from 'idx';
 import Hero from './Hero';
 import Skills from './Skills';
 import MainDuties from './MainDuties';
+import Contact from './Contact';
 import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
 import Page from '../../layout/Page';
@@ -23,6 +24,7 @@ function JobPosition({ title, description }) {
       <Hero />
       <Skills />
       <MainDuties />
+      <Contact />
       <Footer />
     </React.Fragment>
   );

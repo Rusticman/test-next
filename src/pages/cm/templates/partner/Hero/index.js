@@ -4,6 +4,7 @@ import idx from 'idx';
 import DraftRender from '../../../../../components/DraftRender';
 
 import Container from '../../../layout/Container';
+import Heading from '../../../layout/Heading';
 import { mediaUrl } from '../../../../../helpers';
 import styles from './styles.less';
 
@@ -15,7 +16,7 @@ function Hero({ name, image, draftContext }) {
           <img src={mediaUrl(image, 'lg')} />
         </div>
         <div className={styles.info}>
-          <h1>{name}</h1>
+          <Heading>{name}</Heading>
           <DraftRender draftContext={draftContext} />
         </div>
       </div>

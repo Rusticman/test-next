@@ -11,9 +11,10 @@ function Staff({ profiles }) {
     <div className={styles.container}>
       <Container>
         <div className={styles.staff}>
-          {profiles.map((profile) => {
+          {profiles.map((profile, i) => {
             return (
               <Person
+                index={i}
                 image={profile.meta.image}
                 slug={profile.slug}
                 name={profile.meta.name}

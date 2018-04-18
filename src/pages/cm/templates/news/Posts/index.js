@@ -11,7 +11,7 @@ function Posts({ posts }) {
   }
 
   const featured = posts[0];
-
+console.log('POSTS',posts);
   return (
     <Container>
       <div>

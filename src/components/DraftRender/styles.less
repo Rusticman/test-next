@@ -1,7 +1,7 @@
 @import '../../pages/cm/variables';
 
 .post {
-  padding: 35px 100px 20px 100px;
+  padding: 15px 100px 20px 100px;
   border-radius: 10px;
   .breakpoint(mobile, { padding: 0; });
 }
@@ -30,4 +30,29 @@
 .post .left {
   text-align: left;
   min-height: 1.1em;
+}
+
+.heading {
+  color: @text-color;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 400;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: @gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: #444;
+    background: @gradient;
+    border-radius: 3px;
+  }
 }

@@ -4,6 +4,7 @@ import Icon from '../../../../components/Icon/envelope';
 import Facebook from '../../../../components/Icon/facebook';
 import Twitter from '../../../../components/Icon/twitter';
 import Instagram from '../../../../components/Icon/instagram';
+import LinkedIn from '../../../../components/Icon/linkedin';
 
 import styles from './styles.less';
 import Container from '../Container';
@@ -39,6 +40,9 @@ function Footer({ subscribe }) {
             </li>
             <li>
               <a href="/join">Join us</a>
+            </li>
+            <li>
+              <a href="/privacy-policy">Privacy Policy</a>
             </li>
           </ul>
         </div>
@@ -82,6 +86,15 @@ function Footer({ subscribe }) {
                 rel="noopener noreferrer"
               >
                 <Twitter /> Twitter
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/company/checkd-media/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkedIn /> Linkedin
               </a>
             </li>
           </ul>

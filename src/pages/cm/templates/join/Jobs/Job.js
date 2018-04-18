@@ -14,7 +14,7 @@ function Job({ job }) {
         <div className={styles.content}>
           <div style={{backgroundImage: `url(${mediaUrl(job.meta.featured_image, 'md')})`}} className={styles.img}/>
           <h2>{job.title}</h2>
-          <h3>{`${job.meta.job_description.substring(0, 100)}...`}</h3>
+          <h3>{`${job.meta.job_description.length > 100 ? job.meta.job_description.substring(0, 100) : job.meta.job_description}...`}</h3>
           <br />
         </div>
         <div className={styles.cta}>

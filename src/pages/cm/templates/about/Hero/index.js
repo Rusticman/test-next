@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import idx from 'idx';
+import Heading from '../../../layout/Heading';
 import Container from '../../../layout/Container';
 import styles from './styles.less';
 
@@ -12,7 +13,7 @@ function Hero({ headline, secondary }) {
           <img src="https://cdn.checkd.media/illustrations/about.svg" alt="About Us" />
         </div>
         <div>
-          <h1>{headline}</h1>
+          <Heading alignment={'left'}>{headline}</Heading>
           <p>{secondary}</p>
         </div>
       </div>

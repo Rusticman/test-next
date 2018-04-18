@@ -2,9 +2,9 @@ import React from 'react';
 import Card from '../../../layout/Card';
 import styles from './styles.less';
 
-function Person({ image, name, title, description, slug }) {
+function Person({ image, name, title, description, slug, index }) {
   return (
-    <Card href={`/about/${slug}`}>
+    <Card key={'person' + index} href={`/about/${slug}`}>
       <div className={styles.person}>
         <div>
           <img src={image} alt={`${name} - ${title}`} />

@@ -10,7 +10,12 @@ export function mediaUrl(slug, size = 'lg') {
  * @return excerpt
  ***/
 export function createExcerpt(editorState, length) {
-  const parsed = JSON.parse(editorState);
+  let parsed = null;
+  try {
+    parsed = JSON.parse(editorState);
+  } catch (e) {
+    return '';
+  }
   let text = '';
 
   parsed.blocks.forEach((block) => {
@@ -25,7 +30,13 @@ export function createExcerpt(editorState, length) {
 
   return text;
 }
-
+/**
+ * @param page number
+ * @param href
+ * @param total amount of posts
+ * @param limit of posts per render
+ * @return links
+ ***/
 export function createLinks(page, href, total, limit) {
   if (page === 1) {
     return <link rel="next" href={`${href}?page=2`} />;

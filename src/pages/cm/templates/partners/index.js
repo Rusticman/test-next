@@ -8,7 +8,6 @@ import Page from '../../layout/Page';
 import Hero from './Hero';
 import Blocks from './Blocks';
 
-
 class Partners extends React.Component {
   static async getInitialProps({ query }) {
     return {

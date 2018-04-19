@@ -2,13 +2,12 @@ import React from 'react';
 import Head from 'next/head';
 import { connect } from 'react-redux';
 import idx from 'idx';
-
 import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
 import Page from '../../layout/Page';
-
 import Hero from './Hero';
 import Blocks from './Blocks';
+
 
 class Partners extends React.Component {
   static async getInitialProps({ query }) {

@@ -23,6 +23,7 @@ class News extends React.Component {
       type: 'post',
       status: 'publish',
     };
+    console.log('NEWS TEST');
     const posts = await Content.find({
       where,
       sort: 'created_at DESC',

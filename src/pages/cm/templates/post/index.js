@@ -16,6 +16,7 @@ import styles from './styles.less';
 class Post extends React.Component {
 
   static async getInitialProps() {
+
     const related = await Content.find({
       where: {
         type: 'post',

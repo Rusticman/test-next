@@ -1,7 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-
 import styles from './styles.less';
 
 function Card({ children, href, padding, ...props }) {

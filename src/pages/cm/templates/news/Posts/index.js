@@ -11,7 +11,6 @@ function Posts({ posts }) {
   }
 
   const featured = posts[0];
-
   return (
     <Container>
       <div>

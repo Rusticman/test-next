@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 
 import DraftRender from '../../../../../components/DraftRender';
 import Container from '../../../layout/Container';
-
+import Heading from '../../../layout/Heading';
 import styles from './styles.less';
 
 function Content({ draftContext, title }) {
   return (
     <Container>
       <div className={styles.content}>
-        <h1>{title}</h1>
+        <Heading>{title}</Heading>
         <DraftRender draftContext={draftContext} />
       </div>
     </Container>

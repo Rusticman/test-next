@@ -2,6 +2,7 @@
 
 .hero {
   display: grid;
+  margin-top: 60px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 70vh;
   align-items: center;
@@ -19,6 +20,7 @@
   .breakpoint(mobile, {
     padding-top: @header-height;
     display: flex;
+    margin-top: 0;
     flex-direction: column-reverse;
     justify-content: space-evenly;
     height: 100vh;

@@ -12,7 +12,7 @@ function Skills({ draftContext }) {
       <div className={styles.backgroundSlant} />
       <Container className={styles.content}>
         <div className={styles.skills}>
-          <Heading>Essential Skills </Heading>
+          <Heading h1={false}>Essential Skills </Heading>
           <DraftRender draftContext={draftContext} />
         </div>
       </Container>

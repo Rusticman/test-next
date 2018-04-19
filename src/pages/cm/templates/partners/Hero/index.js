@@ -2,13 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import idx from 'idx';
 import Container from '../../../layout/Container';
+import Heading from '../../../layout/Heading';
 import styles from './styles.less';
 
 function Hero({ headline, secondary }) {
   return (
     <Container>
       <div className={styles.hero}>
-        <h1>{headline}</h1>
+        <Heading>{headline}</Heading>
         <p>{secondary}</p>
       </div>
     </Container>

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import idx from 'idx';
 import Container from '../../../layout/Container';
+import Heading from '../../../layout/Heading';
 import styles from './styles.less';
 
 function Hero({ image, name, about }) {
@@ -12,7 +13,7 @@ function Hero({ image, name, about }) {
           <img className={styles.image} src={image} alt={name} />
         </div>
         <div>
-          <h1>{name}</h1>
+          <Heading h1={false}>{name}</Heading>
           <p>{about}</p>
         </div>
       </div>

@@ -10,7 +10,7 @@ function MainDuties({ draftContext }) {
   return (
     <Container className={styles.content}>
       <div className={styles.duties}>
-        <Heading>Main Duties </Heading>
+        <Heading h1={false}>Main Duties </Heading>
         <DraftRender draftContext={draftContext} />
       </div>
     </Container>

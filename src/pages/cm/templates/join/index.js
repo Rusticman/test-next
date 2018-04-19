@@ -12,7 +12,8 @@ import Footer from '../../layout/Footer';
 class JoinUs extends React.Component {
 
   static async getInitialProps() {
-    const jobs = await Content.find({ where:{ parent: 791,  }});
+    const joinus = await Content.find({ where: { slug: 'join-us' } });
+    const jobs = await Content.find({ where: { parent: joinus[0].id } });
 
     return { jobs };
   }

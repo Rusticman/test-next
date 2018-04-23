@@ -1,26 +1,9 @@
 const { join } = require('path');
 
 module.exports = {
-  /** ------------
-   *     ROUTES
-   *  ----------- */
-  'get /robots.txt': (req, res) =>
-    next.serveStatic(
-      req,
-      res,
-      join(__dirname, '../../src/static', `/robots.txt`)
-    ),
-
-  // site maps
-  'get /sitemap.xml': require('./sitemaps').root,
-  'get /sitemap_pages_:page.xml': require('./sitemaps').pages,
-  'get /sitemap_posts_:page.xml': require('./sitemaps').posts,
 
   // content
   'get *': require('./content'),
-
-  // api
-  'post /api/email': require('./api/email'),
 
   /** ------------
    *   INTERNALS

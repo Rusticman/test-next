@@ -1,80 +1,20 @@
-const types = ['post', 'page', 'category'];
-
-const filter = {
-  type: types,
-  // status: 'publish', // TODO add back in when pages published.
-};
-
 module.exports = async (req, res) => {
   const url = req.params[0];
-  const [, slug, childSlug, babySlug] = url.split('/');
+  let [, slug, childSlug, babySlug] = url.split('/');
 
   // allow next to handle it's own routes and assets
   if (slug === '_next' || slug.includes('.')) {
     return next.getRequestHandler()(req, res);
   }
+  if (!slug.length) slug = 'homepage';
 
-  const cacheKey = `/${BRAND}/${slug ||
-    'homepage'}/${childSlug}/${babySlug}${BUILD_ID}?${JSON.stringify(
-    req.query
-  )}`;
+  console.log('slug', slug);
 
-  // check redis cache first
-  const [getCacheError, cachedHtml] = await A2A(Cache.get(cacheKey));
-  if (!dev && !getCacheError && cachedHtml) {
-    res.setHeader('x-cache', 'HIT');
-    res.send(cachedHtml);
-    return undefined;
-  }
-  res.setHeader('x-cache', 'MISS');
-  if (dev) console.log(`Cache skipped for key ${cacheKey} as we're in DEV.`);
-  if (getCacheError) console.error(getCacheError);
-
-  // get slug(s) content records
-  const promises = [];
-  promises.push(() => Content.findOne({ slug: slug || 'homepage', ...filter }));
-  if (childSlug)
-    promises.push(() => Content.findOne({ slug: childSlug, ...filter }));
-  if (babySlug)
-    promises.push(() => Content.findOne({ slug: babySlug, ...filter }));
-
-  const [getContentError, contents] = await A2A(promises);
-  if (getContentError) {
-    console.error(getContentError);
-    console.dir(getContentError);
-    return next.render(req, res, `/${BRAND}/http/error`, getContentError);
-  }
-
-  if (contents && contents[0]) {
-    const { id, slug: contentSlug, meta } =
-      contents[2] || contents[1] || contents[0];
-
-    if (meta.template) {
-      const [renderError, html] = await A2A(
-        next.renderToHTML(
-          req,
-          res,
-          `/${BRAND}/templates/${meta.template}`,
-          contents[2] || contents[1] || contents[0]
-        )
-      );
-
-      if (renderError) {
-        console.error(renderError);
-        console.dir(renderError);
-        return next.render(req, res, `/${BRAND}/http/500`, renderError);
-      }
-
-      if (!getCacheError) await A2A(Cache.set(cacheKey, html, 300));
-      return res.send(html);
-    }
-
-    console.warn('-'.repeat(80));
-    console.warn(
-      ` -> FIXME: Template meta field missing for content '${id}' with slug '${contentSlug}'`
-    );
-    console.warn('-'.repeat(80));
-  }
-  // 404 page
-  return next.render(req, res, `/${BRAND}/http/404`);
+  next.renderToHTML(
+    req,
+    res,
+    `/cm/templates/${slug}`
+  ).then(html => {
+    return res.send(html);
+  }).catch(err => res.send(err));
 };

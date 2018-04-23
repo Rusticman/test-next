@@ -1,27 +1,20 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
-import { readFileSync } from 'fs';
-
 const dev = process.env.NODE_ENV !== 'production';
-
-function getStyles() {
-  return readFileSync(`${process.cwd()}/src/.next/static/style.css`, {
-    encoding: 'utf8',
-  });
-}
 
 export default class extends Document {
   render() {
+    const { buildManifest } = this.props;
+    const { css } = buildManifest;
+    console.log('buildManifest', buildManifest);
+    console.log('css', css);
+
     return (
       <html lang="en">
         <Head>
-          {dev && (
-            <link
-              rel="stylesheet"
-              href={`/_next/static/style.css?v=${Math.random().toString(32)}`}
-            />
-          )}
-          {!dev && <style dangerouslySetInnerHTML={{ __html: getStyles() }} />}
+          {css.map(file => (
+            <link rel="stylesheet" href={`/_next/${file}?version=${dev ? Math.random().toString(32) : 'BUILD_ID'}`} key={file} />
+          ))}
         </Head>
         <body>
           <Main />

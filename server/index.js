@@ -1,4 +1,3 @@
-require('./utils');
 
 const cors = require('cors');
 const express = require('express');
@@ -7,8 +6,6 @@ const compression = require('compression');
 const multipart = require('connect-multiparty');
 
 const { initializeRoutes } = require('./routes');
-const { initializeRediBox } = require('./services/redibox');
-const { initializeWaterline } = require('./services/waterline');
 
 const customHost = process.env.HOST;
 const host = customHost || null;
@@ -47,8 +44,6 @@ global.DOMAIN_ROOT = HOST === 'localhost' ? `${HOST}:${PORT}` : `${HOST}`;
   if (!dev) next.server.use(compression({ threshold: 0 }));
 
   // internal services
-  await initializeWaterline();
-  await initializeRediBox();
   await initializeRoutes();
 
   next.server.listen(port, host, err => {

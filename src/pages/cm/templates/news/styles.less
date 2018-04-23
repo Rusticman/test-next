@@ -1,11 +1,21 @@
-.posts {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  margin: 40px 20%;
+.news{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    height: 300px;
 }
 
-@media screen and (min-width: 1760px) {
-  .posts {
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-  }
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+grid-template-rows: 200px;
+
+div:first-child{
+  background-color: olivedrab;
+}
+
+div:last-child{
+  background-color: chocolate; 
+}
 }

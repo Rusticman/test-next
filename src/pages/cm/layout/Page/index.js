@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { Provider } from 'react-redux';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 import idx from 'idx';
-import Router from 'next/router';
 import { mediaUrl } from '../../../../helpers';
 import Document from '../../../../components/Document';
 import tagManager from '../../../../scripts/tagManager';
@@ -18,12 +17,6 @@ const FAV_ICON = 'https://cdn.checkd.media/favicons/cm.png';
 
 const Page = ComposedComponent => {
   class Decorator extends React.Component {
-
-    componentDidMount() {
-      Router.beforePopState(() => {
-        return false;
-      });
-    }
 
     render() {
       const props = this.props;

@@ -13,7 +13,7 @@ export default class extends Document {
       <html lang="en">
         <Head>
           {css.map(file => (
-            <link rel="stylesheet" href={`/_next/${file}?version=${dev ? Math.random().toString(32) : 'BUILD_ID'}`} key={file} />
+            <link rel="stylesheet" href={`/_next/${file}?version=${Math.random().toString(32)}`} key={file} />
           ))}
         </Head>
         <body>

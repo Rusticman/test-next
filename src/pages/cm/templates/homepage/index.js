@@ -6,6 +6,9 @@ function Homepage() {
     <React.Fragment>
       <div className={styles.homepage}>
         HOMEPAGE
+        <div>
+            <a className={styles.anchor} href="/news">News</a>
+          </div>
     </div>
       <div className={styles.grid}>
           <div></div>
